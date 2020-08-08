@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.community.postScreen" />
+        <activity android:name=".teamdetailActivity" />
     </application>
 
 </manifest>
