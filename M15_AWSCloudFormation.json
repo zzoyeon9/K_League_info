@@ -1,0 +1,195 @@
+{
+    "AWSTemplateFormatVersion" : "2010-09-09",
+
+    "Description" : "AWS CloudFormation using IAM, Lambda, Gateway, S3 : to support M_15 project which gives users about K_league team&player information",
+
+    "Parameters" : {
+        "Password" : {
+            "NoEcho" : "true",
+            "Type" : "String",
+            "Description" : "New account password",
+            "MinLength" : "5",
+            "MaxLength" : "40",
+            "ConstraintDescription" : "the password must be between 5 and 40 characters"
+        }
+    },
+
+
+    "Resources" : {
+        "CFNUser" : {
+            "Type" : "AWS::IAM::User",
+            "Properties" : {
+                "LoginProfile" : {
+                    "Password" : { "Ref" : "Password" }
+                }
+            }
+        },
+
+        "CFNUserGroup" : {
+            "Type" : "AWS::IAM::Group"
+        },
+
+        "CFNAdminGroup" : {
+            "Type" : "AWS::IAM::Group"
+        },
+
+        "CFNWriterGroup" : {
+            "Type" : "AWS::IAM::Gruop"
+        },
+
+        "Users" : {
+            "Type" : "AWS::IAM::UserToGroupAddition",
+            "Properties" : {
+                "GroupName" : { "Ref" : "CFNUserGroup" },
+                "Users" : [ { "Ref" : "CFNUser" } ]
+            }
+        },
+
+        "Admins" : {
+            "Type" : "AWS::IAM::UserToGroupAddition",
+            "Properties" : {
+                "GroupName" : { "Ref" : "CFNAdminGroup" },
+                "Users" : [ { "Ref" : "CFNUser" } ]
+            }
+        },
+
+        "Writer" : {
+            "Type" : "AWS::IAM::UserToGroupAddition",
+            "Properties" : {
+                "GroupName" : { "Ref" : "CFNWriterGroup" },
+                "Users" : [ { "Ref" : "CFNWriter" } ]
+            }
+        },
+
+        "CFNUserPolicies" : {
+            "Type" : "AWS::IAM::Policy",
+            "Properties" : {
+                "PolicyName" : "CFNUsers",
+                "PolicyDocument" : {
+                    "Statement" : [{
+                        "Effect" : "Allow",
+                        "Action" : [
+                            "cloudformation:Describe*",
+                            "cloudformation:List*",
+                            "cloudformation:Get*"
+                        ],
+                        "Resource" : "*"
+                    }]
+                },
+                "Groups" : [{ "Ref" : "CFNUserGroup"}]
+            }
+        },
+        
+        "CFNAdminPolicies" : {
+            "Type" : "AWS::IAM::Policy",
+            "Properties" : {
+                "PolicyName" : "CFNAdmins",
+                "PolicyDocument" : {
+                    "Statement" : [{
+                        "Effect" : "Allow",
+                        "Action" : [
+                            "cloudformation:*",
+                            "S3:*"
+                        ],
+                        "Resource" : "*"
+                    }]
+                },
+                "Groups" :  [{ "Ref" : "CFNAdminGroup" }]
+            }
+        },
+
+        "CFNWriterPolicies" : {
+            "Type" : "AWS::IAM::Policy",
+            "Properties" : {
+                "PolicyName" : "CFNWriter",
+                "PolicyDocument" :  {
+                    "Statement" : [{
+                        "Effect" : "Allow",
+                        "Action" : [
+                            "cloudformation:Post*",
+                            "cloudformation:Describe*",
+                            "cloudformation:List*"
+                        ],
+                        "Resource" : "*"
+                    }]
+                },
+                "Groups" : [{ "Ref" : "CFNWriterGroup" }]
+            }
+        },
+
+        "CFNKeys" : {
+            "Type" : "AWS::IAM::AccessKey",
+            "Properties" : {
+                "UserName" : { "Ref" : "CFNUser" }
+            }
+        },
+
+
+
+        "S3Bucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "DeletionPolicy" : "Retain",
+            "AvailabilityZone" : "us-east-1a",
+            "Properties" : {
+                "AccessControl" : "PublicRead",
+                "BucketName" : "M15-bucket"
+            }
+        },
+
+        "S3AccessPoint" : {
+            "Type" : "AWS::S3::AccessPoint",
+            "Properties" : {
+                "Bucket" : "M15-bucket",
+                "CreationDate" : "2020-07-09",
+                "Name" : "M15-bucket-accesspoint"
+            }
+        },
+
+        "S3Policy" : {
+            "Type" : "AWS::S3::BucketPolicy",
+            "Properties" : {
+                "Name" : "M15-bucket-policy",
+                "Bucket" : { "Ref" : "S3Bucket" }
+            }
+        },
+
+        "LambdaPermission" : {
+            "Type" : "AWS::Lambda::Permission",
+            "Properties" : {
+                "Name" : "lambda-permission"
+            }
+        },
+
+        "LambdaFunInfoUpdate" : {
+            "Type" : "AWS::Lambda::Function",
+            "Properties" : {
+                "Name" : "lambda-fun-infoUpdate"
+            }
+        }
+    },
+
+   
+
+    "Outputs" : {
+        "AccessKey" : {
+            "Value" : { "Ref" : "CFNKeys" },
+            "Description" : "AWSAccessKeyId of new user"
+        },
+        "SecretKey" : {
+            "Value" : { "Fn::GetAtt" : ["CFNKeys", "SecretAccessKey"]},
+            "Description" : "AWSSecretKey of new user"
+        },
+
+
+
+
+        "WebsiteURL" : {
+            "Value" : { "Fn::GetAtt" : [ "S3Bucket", "WebsiteURL" ] },
+            "Description" : "URL for website hosted on S3"
+        },
+        "S3BucketSecureURL" : {
+            "Value" : { "Fn::Join" : [ "", [ "https://", { "Fn::GetAtt" : [ "S3Bucket", "DomainName" ] } ] ] },
+            "Description" : "Name of S3 bucket to hold website content"
+        }
+    }
+}
