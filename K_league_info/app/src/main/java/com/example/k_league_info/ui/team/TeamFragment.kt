@@ -9,7 +9,7 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.example.k_league_info.R
 import com.example.k_league_info.R.layout.fragment_team
-import com.example.k_league_info.teamdetailActivity
+import com.example.k_league_info.TeamdetailActivity
 
 class TeamFragment : Fragment() {
     override fun onCreateView(
@@ -22,7 +22,7 @@ class TeamFragment : Fragment() {
         val gangwonImageButton = root.findViewById<ImageButton>(R.id.gangwonImagebutton)
         gangwonImageButton.setOnClickListener {
             activity?.let{
-                val nextIntent = Intent(context, teamdetailActivity::class.java)
+                val nextIntent = Intent(context, TeamdetailActivity::class.java)
                 startActivity(nextIntent)
             }
         }
@@ -30,7 +30,7 @@ class TeamFragment : Fragment() {
         val incheonImagebutton = root.findViewById<ImageButton>(R.id.incheonImagebutton)
         incheonImagebutton.setOnClickListener {
             activity?.let{
-                val nextIntent = Intent(context, teamdetailActivity::class.java)
+                val nextIntent = Intent(context, TeamdetailActivity::class.java)
                 startActivity(nextIntent)
             }
         }
