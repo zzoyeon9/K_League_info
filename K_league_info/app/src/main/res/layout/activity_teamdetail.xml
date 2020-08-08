@@ -7,20 +7,20 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/linearLayout01"
+        android:id="@+id/teamdescLinearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/teamLogo"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/gangwon" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/teamDesc"
             android:layout_width="wrap_content"
             android:layout_height="151dp"
             android:layout_weight="1"
@@ -28,9 +28,11 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/teamstaffLinearlayout"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout01">
+        app:layout_constraintTop_toBottomOf="@+id/teamdescLinearlayout"
+        android:layout_height="wrap_content">
 
         <HorizontalScrollView
             android:layout_width="match_parent"
@@ -44,6 +46,12 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/tmp_buttton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="연결용 버튼" />
             </LinearLayout>
         </HorizontalScrollView>
     </LinearLayout>
