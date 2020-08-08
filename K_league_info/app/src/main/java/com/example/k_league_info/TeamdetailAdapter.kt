@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_teamdetail.view.*
 
 
-class teamdetailAdapter(private val items: ArrayList<teamdetailBoard>) :
-    RecyclerView.Adapter<teamdetailAdapter.ViewHolder>() {
+class TeamdetailAdapter(private val items: ArrayList<TeamdetailBoard>) :
+    RecyclerView.Adapter<TeamdetailAdapter.ViewHolder>() {
 
     override fun getItemCount() = items.size
 
-    override fun onBindViewHolder(holder: teamdetailAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TeamdetailAdapter.ViewHolder, position: Int) {
         val item = items[position]
         val listener = View.OnClickListener { it ->
             Toast.makeText(it.context, "Clicked: ${item.name}", Toast.LENGTH_SHORT).show()
@@ -25,17 +25,17 @@ class teamdetailAdapter(private val items: ArrayList<teamdetailBoard>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-            teamdetailAdapter.ViewHolder {
+            TeamdetailAdapter.ViewHolder {
         val inflatedView = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_teamdetail, parent, false)
-        return teamdetailAdapter.ViewHolder(inflatedView)
+        return TeamdetailAdapter.ViewHolder(inflatedView)
     }
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
 
         private var view: View = v
 
-        fun bind(listener: View.OnClickListener, item: teamdetailBoard) {
+        fun bind(listener: View.OnClickListener, item: TeamdetailBoard) {
             view.thumbnail.setImageDrawable(item.image)
             view.name.text = item.name
             view.setOnClickListener(listener)
