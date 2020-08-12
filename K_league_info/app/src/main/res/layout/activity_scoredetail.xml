@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<!--    tools는 xml의 layout preview에서 어떻게 나오는지 확인할수 있고 실제 앱에서는 표시되지 않음.-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<!--        이미지 뷰의 drawable을 설정할수 있어야 스코어와 이미지를 변경할수있다. 리사이클을 여기도 쓸까?-->
+
+        <ImageView
+            android:id="@+id/team_logo_1"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:src="@drawable/seoul" />
+
+        <TextView
+            android:id="@+id/score_1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="5"
+            tools:gravity="center"
+            tools:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/VS"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="VS"
+            tools:gravity="center"
+            tools:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/score_2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="5"
+            tools:gravity="center"
+            tools:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/team_logo_2"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:src="@drawable/gangwon" />
+
+    </LinearLayout>
+
+    <TabHost
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+</LinearLayout>
