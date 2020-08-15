@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/homemark"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/gyeongnam" />
+
+    <TextView
+        android:id="@+id/homename"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="경남"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="VS"
+        android:textSize="50dp" />
+
+    <TextView
+        android:id="@+id/awayname"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="성남"
+        android:textSize="25dp" />
+
+    <ImageView
+        android:id="@+id/awaymark"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/seongnam" />
+</LinearLayout>
