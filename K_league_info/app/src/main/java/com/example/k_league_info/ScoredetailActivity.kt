@@ -16,8 +16,13 @@ class ScoredetailActivity : AppCompatActivity() {
     }
 
     private fun initViewPager(){
-
-        val highlightFragment = FragmentHighlight()
+        val list = mutableListOf<HighlightModel>().apply {
+            add(HighlightModel(HighlightModel.ITEM_TIME, "시작","오후 4시",R.drawable.ic_launcher_foreground,0,null))
+            add(HighlightModel(HighlightModel.ITEM_GOAL, "Goal","80분",R.drawable.ic_launcher_foreground,0,null))
+            add(HighlightModel(HighlightModel.ITEM_CARD, "옐로카드","10분",R.drawable.ic_launcher_foreground,0,null))
+            add(HighlightModel(HighlightModel.ITEM_SWITCH, "선수 교체","30",R.drawable.ic_launcher_foreground,R.drawable.ic_launcher_foreground,null))
+        }
+        val highlightFragment = FragmentHighlight(list)
         val recodeFragment = FragmentRecode()
         val lineupFragment = FragmentLineup()
 
@@ -39,22 +44,6 @@ class ScoredetailActivity : AppCompatActivity() {
         tl_scoredetail.getTabAt(1)?.text = "Recode"
         tl_scoredetail.getTabAt(2)?.text = "Lineup"
     }
-
-    /** 자료 파싱을 위해 프레그먼트 뷰의 리사이크러를 설정하는 법을 찾아야함.
-     private fun initHighlight(highlightFragment: FragmentHighlight){
-
-        val list = mutableListOf<HighlightModel>().apply {
-            add(HighlightModel(HighlightModel.ITEM_TIME, "시작","오후 4시",R.drawable.ic_launcher_foreground,0,null))
-            add(HighlightModel(HighlightModel.ITEM_GOAL, "Goal","80분",R.drawable.ic_launcher_foreground,0,null))
-            add(HighlightModel(HighlightModel.ITEM_CARD, "옐로카드","10분",R.drawable.ic_launcher_foreground,0,null))
-            add(HighlightModel(HighlightModel.ITEM_SWITCH, "선수 교체","30",R.drawable.ic_launcher_foreground,R.drawable.ic_launcher_foreground,null))
-        }
-        val adapter = MultiViewTypeAdapter(list)
-
-        rv_scoredetail.layoutManager = LinearLayoutManager(highlightFragment.context, RecyclerView.VERTICAL, false)
-        rv_scoredetail.adapter = adapter
-    }
-    **/
 
     private fun initRecode(recodeFragment: FragmentRecode){
         recodeFragment.name = "Recode"
