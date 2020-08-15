@@ -1,5 +1,6 @@
 package com.example.k_league_info.ui.score
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

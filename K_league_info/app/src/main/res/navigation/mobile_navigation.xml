@@ -9,13 +9,21 @@
         android:id="@+id/navigation_home"
         android:name="com.example.k_league_info.ui.score.ScoreFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_score" />
+        tools:layout="@layout/fragment_score" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_team"
+            app:destination="@id/navigation_team" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_team"
         android:name="com.example.k_league_info.ui.team.TeamFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_team" />
+        tools:layout="@layout/fragment_team" >
+        <action
+            android:id="@+id/action_navigation_team_to_navigation_community"
+            app:destination="@id/navigation_community" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_community"
