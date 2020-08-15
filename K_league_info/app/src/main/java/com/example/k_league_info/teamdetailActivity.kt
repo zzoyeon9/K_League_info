@@ -1,18 +1,17 @@
 package com.example.k_league_info
 
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.k_league_info.R.drawable.*
 import kotlinx.android.synthetic.main.activity_teamdetail.*
-import android.content.Intent
+import kotlinx.android.synthetic.main.activity_teamdetail.view.*
 
 class TeamdetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_teamdetail)
 
-        tmp_buttton.setOnClickListener {
-            val intent = Intent(this, Player::class.java)
-            startActivity(intent)
-        }
+        var imageName = "";
     }
 }
