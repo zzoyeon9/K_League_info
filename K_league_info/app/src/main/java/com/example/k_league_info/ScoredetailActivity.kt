@@ -2,9 +2,9 @@ package com.example.k_league_info
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.k_league_info.ScoredetailFragment.FragmentHighlight
-import com.example.k_league_info.ScoredetailFragment.FragmentLineup
-import com.example.k_league_info.ScoredetailFragment.FragmentRecode
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.k_league_info.ScoredetailFragment.*
 import kotlinx.android.synthetic.main.activity_scoredetail.*
 
 class ScoredetailActivity : AppCompatActivity() {
@@ -12,7 +12,24 @@ class ScoredetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scoredetail)
 
+        initViewPager()
+    }
+
+    private fun initViewPager(){
+
+        val highlightFragment = FragmentHighlight()
+        val recodeFragment = FragmentRecode()
+        val lineupFragment = FragmentLineup()
+
+//        initHighlight(highlightFragment)
+        initRecode(recodeFragment)
+        initLineUp(lineupFragment)
+
         val fragmentAdapter = ScoredetailFPA(supportFragmentManager)
+        fragmentAdapter.addItems(highlightFragment)
+        fragmentAdapter.addItems(recodeFragment)
+        fragmentAdapter.addItems(lineupFragment)
+
         //뷰페이저 연결
         vp_scoredetail.adapter = fragmentAdapter
         //탭레이아웃 연결 (support:design)
@@ -21,5 +38,29 @@ class ScoredetailActivity : AppCompatActivity() {
         tl_scoredetail.getTabAt(0)?.text = "Highlight"
         tl_scoredetail.getTabAt(1)?.text = "Recode"
         tl_scoredetail.getTabAt(2)?.text = "Lineup"
+    }
+
+    /** 자료 파싱을 위해 프레그먼트 뷰의 리사이크러를 설정하는 법을 찾아야함.
+     private fun initHighlight(highlightFragment: FragmentHighlight){
+
+        val list = mutableListOf<HighlightModel>().apply {
+            add(HighlightModel(HighlightModel.ITEM_TIME, "시작","오후 4시",R.drawable.ic_launcher_foreground,0,null))
+            add(HighlightModel(HighlightModel.ITEM_GOAL, "Goal","80분",R.drawable.ic_launcher_foreground,0,null))
+            add(HighlightModel(HighlightModel.ITEM_CARD, "옐로카드","10분",R.drawable.ic_launcher_foreground,0,null))
+            add(HighlightModel(HighlightModel.ITEM_SWITCH, "선수 교체","30",R.drawable.ic_launcher_foreground,R.drawable.ic_launcher_foreground,null))
+        }
+        val adapter = MultiViewTypeAdapter(list)
+
+        rv_scoredetail.layoutManager = LinearLayoutManager(highlightFragment.context, RecyclerView.VERTICAL, false)
+        rv_scoredetail.adapter = adapter
+    }
+    **/
+
+    private fun initRecode(recodeFragment: FragmentRecode){
+        recodeFragment.name = "Recode"
+    }
+
+    private fun initLineUp(lineupFragment: FragmentLineup){
+        lineupFragment.name = "LineUp"
     }
 }

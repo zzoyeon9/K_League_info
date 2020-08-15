@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Scoredetail.ScoredetailActivity">
 <!--    tools는 xml의 layout preview에서 어떻게 나오는지 확인할수 있고 실제 앱에서는 표시되지 않음.-->
 
     <LinearLayout
@@ -25,9 +25,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="5"
-            tools:gravity="center"
-            tools:textSize="30sp" />
+            tools:text="5"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/VS"
@@ -35,17 +36,19 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="VS"
-            tools:gravity="center"
-            tools:textSize="18sp" />
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/score_2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="5"
-            tools:gravity="center"
-            tools:textSize="30sp" />
+            tools:text="5"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
         <ImageView
             android:id="@+id/team_logo_2"
@@ -72,17 +75,17 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="경기 하이라이트" />
+            tools:text="경기 하이라이트" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="경기 기록" />
+            tools:text="경기 기록" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="라인업" />
+            tools:text="라인업" />
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
