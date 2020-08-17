@@ -62,9 +62,9 @@ class ScoreAdapter (val context: Context,val scheduleList: ArrayList<ScoreBoard>
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(scheduleList[position], context)
-        holder.itemView.setOnClickListener{
-            itemClickListener.onClick(it, position)
-        }
+       /* holder.itemView.setOnClickListener{
+            itemClickListener!!.onClick(it, position)
+        }*/
     }
 
 

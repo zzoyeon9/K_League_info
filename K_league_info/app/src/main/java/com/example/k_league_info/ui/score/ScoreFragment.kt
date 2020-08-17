@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.FrameLayout
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,26 +34,24 @@ class ScoreFragment : Fragment() {
     ): View? {
 
         val rootView = inflater.inflate(R.layout.fragment_score, container,false)
+        val rootView2 = inflater.inflate(R.layout.item_score, container,false)
+
         val score_Adapter = ScoreAdapter(requireContext(), boardList)
         val myrecycler = rootView.findViewById(R.id.score_recyclerView!!)as RecyclerView
         myrecycler.layoutManager = LinearLayoutManager(requireContext())
         myrecycler.adapter = score_Adapter
 
-        var button = rootView.findViewById<Button>(R.id.button)
-        button.setOnClickListener {
+
+        var scoreCard = rootView2.findViewById<CardView>(R.id.score_card)
+        scoreCard.setOnClickListener {
             activity?.let {
                 val nextIntent = Intent(context, ScoredetailActivity::class.java)
                 startActivity(nextIntent)
             }
         }
 
-        /*score_Adapter.setItemClickListener(object : ScoreAdapter.ItemClickListener{
-            override fun onClick(view: View, position: Int) {
-                val intent = Intent()//Dawith.fragment
-                startActivity(intent)
-            }
-        })*/
-        return inflater.inflate(R.layout.fragment_score, null)
+
+        return rootView2
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

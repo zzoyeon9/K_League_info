@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/score_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/score_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        card_view:cardElevation="10dp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <ImageView
         android:id="@+id/homemark"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/gyeongnam" />
 
-    <TextView
-        android:id="@+id/homename"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:text="경남"
-        android:textSize="25dp" />
+        <TextView
+            android:id="@+id/homename"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="경남"
+            android:textSize="25dp" />
 
-    <TextView
+        <TextView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:gravity="center"
@@ -33,9 +44,12 @@
         android:text="성남"
         android:textSize="25dp" />
 
-    <ImageView
-        android:id="@+id/awaymark"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/seongnam" />
+        <ImageView
+            android:id="@+id/awaymark"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/seongnam" />
+</LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>
