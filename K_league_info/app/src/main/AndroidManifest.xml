@@ -19,7 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.community.postScreen" />
+        <activity android:name=".ui.community.PostScreen"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ui.community.PostWrite"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".Player" />
         <activity android:name=".TeamdetailActivity" />
     </application>

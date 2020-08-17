@@ -27,9 +27,10 @@ class CommunityAdapter(val context: Context, val boardList: ArrayList<CommunityB
             comment.text = communityBoard.comment
 
             itemView.setOnClickListener {
-                val intent = Intent(itemView.context, postScreen::class.java)
-                var key = communityBoard.number
-                intent.putExtra("key", key)
+                val intent = Intent(itemView.context, PostScreen::class.java)
+                intent.putExtra("num",communityBoard.number)
+                intent.putExtra("title", communityBoard.title)
+                intent.putExtra("content",communityBoard.content)
                 context.startActivity(intent)
             }
         }
