@@ -29,7 +29,8 @@ class PostScreen : AppCompatActivity() {
         ok.setOnClickListener {
             val json = JSONObject()
             json.put("comment", comment.text.toString())
-            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val inputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(this.currentFocus?.windowToken, 0)
             comment.text.clear()
         }

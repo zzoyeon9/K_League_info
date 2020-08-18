@@ -23,21 +23,22 @@ class ScoreFragment : Fragment() {
     var gameList = arrayListOf<ScoreBoard>()
 
     var boardList = arrayListOf<ScoreBoard>(
-        ScoreBoard("제목자리","내용자리","추천수", "댓글수")
+        ScoreBoard("제목자리", "내용자리", "추천수", "댓글수")
 
 
     )
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val rootView = inflater.inflate(R.layout.fragment_score, container,false)
-        val rootView2 = inflater.inflate(R.layout.item_score, container,false)
+        val rootView = inflater.inflate(R.layout.fragment_score, container, false)
+        val rootView2 = inflater.inflate(R.layout.item_score, container, false)
 
         val score_Adapter = ScoreAdapter(requireContext(), boardList)
-        val myrecycler = rootView.findViewById(R.id.score_recyclerView!!)as RecyclerView
+        val myrecycler = rootView.findViewById(R.id.score_recyclerView!!) as RecyclerView
         myrecycler.layoutManager = LinearLayoutManager(requireContext())
         myrecycler.adapter = score_Adapter
 
@@ -53,10 +54,9 @@ class ScoreFragment : Fragment() {
 
         return rootView2
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
     }
-
-
 }

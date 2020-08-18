@@ -15,9 +15,9 @@ import org.json.JSONObject
 
 class CommunityFragment : Fragment() {
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_community, container, false)
     }
@@ -64,8 +64,9 @@ class CommunityFragment : Fragment() {
         val jsonObject = JSONObject(string)
         val jsonArray = jsonObject.optJSONArray("community")
 
-        for(i in 0 until jsonArray.length()-1) {
-            var board = gson.fromJson(jsonArray.getJSONObject(i).toString(), CommunityBoard::class.java)
+        for (i in 0 until jsonArray.length() - 1) {
+            var board =
+                gson.fromJson(jsonArray.getJSONObject(i).toString(), CommunityBoard::class.java)
             boardList.add(board)
         }
 
@@ -84,7 +85,7 @@ class CommunityFragment : Fragment() {
         //아래로 당겼을때 새로 고쳐지는 코드
         var num = 11
         refreshLayout.setOnRefreshListener {
-            boardList.add(CommunityBoard(num++,"제목자리","내용자리","추천수", "댓글수"));
+            boardList.add(CommunityBoard(num++, "제목자리", "내용자리", "추천수", "댓글수"));
             boardList.sortWith(Comparator { t, t2 -> t2.number.compareTo(t.number) })
             CRecycler.adapter?.notifyDataSetChanged();
             refreshLayout.isRefreshing = false

@@ -31,7 +31,7 @@ class TeamFragment : Fragment() {
         val incheonImagebutton = root.findViewById<ImageButton>(R.id.incheonImagebutton)
         incheonImagebutton.setOnClickListener {
             activity?.let {
-                val nextIntent = Intent(context, ScoredetailActivity::class.java)
+                val nextIntent = Intent(context, TeamdetailActivity::class.java)
                 startActivity(nextIntent)
             }
         }
