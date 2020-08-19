@@ -1,5 +1,5 @@
 package com.example.k_league_info
 
-import android.graphics.drawable.Drawable
+import android.net.Uri
 
-data class TeamdetailBoard(val image: Drawable, val name: String)
+data class TeamdetailBoard(val imageurl: String?, val name: String?)

@@ -16,39 +16,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
-        android:id="@+id/homemark"
+        android:id="@+id/homemark_1"
+        android:layout_weight="1"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/gyeongnam" />
 
-        <TextView
-            android:id="@+id/homename"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:text="경남"
-            android:textSize="25dp" />
-
-        <TextView
+    <TextView
+        android:layout_weight="1"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:gravity="center"
         android:text="VS"
         android:textSize="50dp" />
 
-    <TextView
-        android:id="@+id/awayname"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:text="성남"
-        android:textSize="25dp" />
 
-        <ImageView
-            android:id="@+id/awaymark"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/seongnam" />
+    <ImageView
+        android:layout_weight="1"
+        android:id="@+id/awaymark_1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/seongnam" />
 </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
