@@ -2,34 +2,35 @@ package com.example.k_league_info
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
+import android.provider.MediaStore
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import androidx.annotation.LayoutRes
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_teamdetail.view.*
 
 // adapter is used to set data to Recycler View from Data Source
-class TeamdetailAdapter(private val data: ArrayList<TeamdetailBoard>) :
+class TeamdetailAdapter(val context: Context, private val data: ArrayList<TeamdetailBoard>) :
     RecyclerView.Adapter<TeamdetailAdapter.Holder>() {
 
     inner class Holder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener{
-        private var view: View = v
-        private val thumbnail = view.player_thumbnail
-        private val name = view.player_name
-
         init{
             v.setOnClickListener(this)
         }
 
         fun bind(board: TeamdetailBoard, context: Context) {
             val uri = Uri.parse(board.imageurl)
-            thumbnail.setImageURI(uri)
-            name.text = board.name
+            Glide.with(itemView.context).load(uri).into(itemView.player_thumbnail)
+            itemView.player_name.text = board.name
+            Log.d("itemView Name",uri.toString())
         }
 
+        // 여기서 PlayerActivity로 넘길 data 명시하면 됨
         override fun onClick(v: View?) {
             Log.d("Recyerview","clicked")
             val nextIntent = Intent(itemView.context, PlayerActivity::class.java)
@@ -45,18 +46,14 @@ class TeamdetailAdapter(private val data: ArrayList<TeamdetailBoard>) :
         }
 
         val inflatedView = parent.inflate(R.layout.item_teamdetail, false)
+
         return Holder(inflatedView)
 
     }
 
     override fun getItemCount() = data.size
 
-    override fun onBindViewHolder(holder: Holder, position: Int) {
-        val item = data[position]
-        holder.apply {
-            // bind(listener, item)
-            itemView.tag = item
-        }
+    override fun onBindViewHolder(holder: TeamdetailAdapter.Holder, position: Int) {
+        holder.bind(data[position], context)
     }
-
 }
