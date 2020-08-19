@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import androidx.annotation.LayoutRes
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
 import kotlinx.android.synthetic.main.item_teamdetail.view.*
 
 // adapter is used to set data to Recycler View from Data Source
@@ -25,7 +26,7 @@ class TeamdetailAdapter(val context: Context, private val data: ArrayList<Teamde
 
         fun bind(board: TeamdetailBoard, context: Context) {
             val uri = Uri.parse(board.imageurl)
-            Glide.with(itemView.context).load(uri).into(itemView.player_thumbnail)
+            Glide.with(itemView.context).asBitmap().load(uri).fitCenter().into(itemView.player_thumbnail)
             itemView.player_name.text = board.name
             Log.d("itemView Name",uri.toString())
         }
