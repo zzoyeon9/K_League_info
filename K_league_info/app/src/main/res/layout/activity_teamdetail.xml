@@ -41,12 +41,6 @@
             android:orientation="horizontal">
 
         </androidx.recyclerview.widget.RecyclerView>
-
-        <Button
-            android:id="@+id/tmp_buttton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="연결용 버튼" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

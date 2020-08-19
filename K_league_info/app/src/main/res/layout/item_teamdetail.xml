@@ -13,8 +13,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_help"
-        tools:srcCompat="@drawable/gk_lee" />
+        android:src="@android:drawable/ic_menu_help"
+        tools:src="@drawable/gk_lee" />
 
     <TextView
         android:id="@+id/player_name"

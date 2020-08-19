@@ -26,15 +26,9 @@ class TeamdetailActivity : AppCompatActivity() {
         adapter = TeamdetailAdapter(boardlist)
         fw_recyclerview.adapter = adapter
 
-
-        val button = findViewById<Button>(R.id.tmp_buttton);
-        button.setOnClickListener{
-            val nextIntent = Intent(this, PlayerActivity::class.java)
-            startActivity(nextIntent)
-        }
-
     }
 
+    // 만약 시작시 데이터가 없다면 toast 메시지로 404 를 띄운다
     override fun onStart() {
         super.onStart()
         if(boardlist.size == 0){
