@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_score">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_score"
         android:name="com.example.k_league_info.ui.score.ScoreFragment"
-        android:label="@string/title_home"
+        android:label="@string/title_score"
         tools:layout="@layout/fragment_score" >
         <action
-            android:id="@+id/action_navigation_home_to_navigation_team"
+            android:id="@+id/action_navigation_score_to_navigation_team"
             app:destination="@id/navigation_team" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_team"
         android:name="com.example.k_league_info.ui.team.TeamFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_team"
         tools:layout="@layout/fragment_team" >
         <action
             android:id="@+id/action_navigation_team_to_navigation_community"
@@ -28,6 +28,6 @@
     <fragment
         android:id="@+id/navigation_community"
         android:name="com.example.k_league_info.ui.community.CommunityFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_community"
         tools:layout="@layout/fragment_community" />
 </navigation>

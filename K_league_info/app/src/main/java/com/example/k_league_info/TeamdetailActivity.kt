@@ -1,9 +1,8 @@
 package com.example.k_league_info
 
-import android.content.Intent
-import android.net.Uri
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.Button
+import android.widget.LinearLayout.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,11 +18,12 @@ class TeamdetailActivity : AppCompatActivity() {
         TeamdetailBoard("https://i.pinimg.com/originals/8a/e8/8e/8ae88e20a679dd60f5d6f237039bee08.jpg","ryan04")
     )
     
+    @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState : Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_teamdetail)
 
-        linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager = LinearLayoutManager(this, HORIZONTAL, false)
         fw_recyclerview.layoutManager = linearLayoutManager
         
         adapter = TeamdetailAdapter(baseContext, boardlist)

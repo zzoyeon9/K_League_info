@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">K_league_info</string>
 
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Team</string>
-    <string name="title_notifications">Community</string>
+    <string name="title_score">Score</string>
+    <string name="title_team">Team</string>
+    <string name="title_community">Community</string>
 </resources>
