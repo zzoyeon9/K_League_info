@@ -9,7 +9,6 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.example.k_league_info.R
 import com.example.k_league_info.R.layout.fragment_team
-import com.example.k_league_info.ScoredetailActivity
 import com.example.k_league_info.TeamdetailActivity
 
 class TeamFragment : Fragment() {

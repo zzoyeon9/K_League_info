@@ -2,9 +2,7 @@ package com.example.k_league_info
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
-import android.provider.MediaStore
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +10,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import androidx.annotation.LayoutRes
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DecodeFormat
 import kotlinx.android.synthetic.main.item_teamdetail.view.*
 
 // adapter is used to set data to Recycler View from Data Source

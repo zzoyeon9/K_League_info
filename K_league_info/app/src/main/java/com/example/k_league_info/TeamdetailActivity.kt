@@ -1,7 +1,6 @@
 package com.example.k_league_info
 
 import android.annotation.SuppressLint
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.widget.LinearLayout.*
 import android.widget.Toast
@@ -33,11 +32,26 @@ class TeamdetailActivity : AppCompatActivity() {
         teamLogo.setImageResource(baseContext.resources.getIdentifier(teamName, "drawable", baseContext.packageName))
 
         linearLayoutManager = LinearLayoutManager(this, HORIZONTAL, false)
+        staff_recyclerview.layoutManager = linearLayoutManager
+        linearLayoutManager = LinearLayoutManager(this, HORIZONTAL, false)
         fw_recyclerview.layoutManager = linearLayoutManager
+        linearLayoutManager = LinearLayoutManager(this, HORIZONTAL, false)
+        mf_recyclerview.layoutManager = linearLayoutManager
+        linearLayoutManager = LinearLayoutManager(this, HORIZONTAL, false)
+        df_recyclerview.layoutManager = linearLayoutManager
+        linearLayoutManager = LinearLayoutManager(this, HORIZONTAL, false)
+        gk_recyclerview.layoutManager = linearLayoutManager
         
         adapter = TeamdetailAdapter(baseContext, boardlist)
+        staff_recyclerview.adapter = adapter
+        adapter = TeamdetailAdapter(baseContext, boardlist)
         fw_recyclerview.adapter = adapter
-
+        adapter = TeamdetailAdapter(baseContext, boardlist)
+        mf_recyclerview.adapter = adapter
+        adapter = TeamdetailAdapter(baseContext, boardlist)
+        df_recyclerview.adapter = adapter
+        adapter = TeamdetailAdapter(baseContext, boardlist)
+        gk_recyclerview.adapter = adapter
     }
 
 

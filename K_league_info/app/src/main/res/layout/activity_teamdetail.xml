@@ -26,20 +26,80 @@
             android:text="팀 설명 어쩌고 저쩌고" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/teamstaffLinearlayout"
+    <ScrollView
+        android:id="@+id/scrollTeamdetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/teamdescLinearlayout">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/fw_recyclerview"
+        <LinearLayout
+            android:id="@+id/linearTeamdetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/teamdescLinearlayout">
 
-        </androidx.recyclerview.widget.RecyclerView>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/staff_teamdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="감독 및 코치" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/staff_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/fw_teamdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="공격수" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fw_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/mf_teamdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="미드필더" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mf_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/df_teamdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="수비수" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/df_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal" />
+
+            <TextView
+                android:id="@+id/gk_teamdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="골키퍼" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/gk_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal" />
+        </LinearLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

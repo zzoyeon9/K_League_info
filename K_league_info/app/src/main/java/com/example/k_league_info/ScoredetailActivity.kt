@@ -2,8 +2,6 @@ package com.example.k_league_info
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.k_league_info.ScoredetailFragment.*
 import kotlinx.android.synthetic.main.activity_scoredetail.*
 
