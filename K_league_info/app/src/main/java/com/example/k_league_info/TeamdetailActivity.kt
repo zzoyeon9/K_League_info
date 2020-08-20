@@ -1,6 +1,7 @@
 package com.example.k_league_info
 
 import android.annotation.SuppressLint
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.widget.LinearLayout.*
 import android.widget.Toast
@@ -22,6 +23,9 @@ class TeamdetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState : Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_teamdetail)
+        var teamName: String? = getIntent().getStringExtra("teamName")
+
+        teamLogo.setImageResource(baseContext.resources.getIdentifier(teamName, "drawable", baseContext.packageName))
 
         linearLayoutManager = LinearLayoutManager(this, HORIZONTAL, false)
         fw_recyclerview.layoutManager = linearLayoutManager
