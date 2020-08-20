@@ -17,10 +17,10 @@ class ScoredetailActivity : AppCompatActivity() {
 
     private fun initViewPager(){
         val list = mutableListOf<HighlightModel>().apply {
-            add(HighlightModel(HighlightModel.ITEM_TIME, "시작","오후 4시",R.drawable.ic_launcher_foreground,0,null))
-            add(HighlightModel(HighlightModel.ITEM_GOAL, "Goal","80분",R.drawable.ic_launcher_foreground,0,null))
-            add(HighlightModel(HighlightModel.ITEM_CARD, "옐로카드","10분",R.drawable.ic_launcher_foreground,0,null))
-            add(HighlightModel(HighlightModel.ITEM_SWITCH, "선수 교체","30",R.drawable.ic_launcher_foreground,R.drawable.ic_launcher_foreground,null))
+            add(HighlightModel(HighlightModel.ITEM_TIME, "시작","오후 4시",R.drawable.ic_launcher_foreground,"","",0,"","",null))
+            add(HighlightModel(HighlightModel.ITEM_GOAL, "Goal","80\'",R.drawable.ic_launcher_foreground,"","",0,"","",null))
+            add(HighlightModel(HighlightModel.ITEM_CARD, "옐로카드","10\'",R.drawable.ic_launcher_foreground,"","",0,"","",null))
+            add(HighlightModel(HighlightModel.ITEM_SWITCH, "선수 교체","30\'",R.drawable.ic_launcher_foreground,"","",R.drawable.ic_launcher_foreground,"","",null))
         }
         val highlightFragment = FragmentHighlight(list)
         val recodeFragment = FragmentRecode()
