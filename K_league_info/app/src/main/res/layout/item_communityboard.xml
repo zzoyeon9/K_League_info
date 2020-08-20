@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    android:layout_marginTop="2dp"
-    android:layout_marginBottom="2dp"
     android:layout_marginStart="4dp"
-    android:layout_marginEnd="4dp">
+    android:layout_marginTop="2dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginBottom="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,10 +25,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="80"
-                android:gravity="center_vertical"
-                android:text="제목"
-                android:maxLines="1"
                 android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="제목"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -45,9 +45,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="80"
+                android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:maxLines="1"
-                android:ellipsize="end"
                 android:text="내용" />
 
             <TextView

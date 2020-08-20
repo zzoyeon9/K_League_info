@@ -15,12 +15,48 @@ class ScoredetailActivity : AppCompatActivity() {
         initViewPager()
     }
 
-    private fun initViewPager(){
+    private fun initViewPager() {
         val list = mutableListOf<HighlightModel>().apply {
-            add(HighlightModel(HighlightModel.ITEM_TIME, "시작","오후 4시",R.drawable.ic_launcher_foreground,0,null))
-            add(HighlightModel(HighlightModel.ITEM_GOAL, "Goal","80분",R.drawable.ic_launcher_foreground,0,null))
-            add(HighlightModel(HighlightModel.ITEM_CARD, "옐로카드","10분",R.drawable.ic_launcher_foreground,0,null))
-            add(HighlightModel(HighlightModel.ITEM_SWITCH, "선수 교체","30",R.drawable.ic_launcher_foreground,R.drawable.ic_launcher_foreground,null))
+            add(
+                HighlightModel(
+                    HighlightModel.ITEM_TIME,
+                    "시작",
+                    "오후 4시",
+                    R.drawable.ic_launcher_foreground,
+                    0,
+                    null
+                )
+            )
+            add(
+                HighlightModel(
+                    HighlightModel.ITEM_GOAL,
+                    "Goal",
+                    "80분",
+                    R.drawable.ic_launcher_foreground,
+                    0,
+                    null
+                )
+            )
+            add(
+                HighlightModel(
+                    HighlightModel.ITEM_CARD,
+                    "옐로카드",
+                    "10분",
+                    R.drawable.ic_launcher_foreground,
+                    0,
+                    null
+                )
+            )
+            add(
+                HighlightModel(
+                    HighlightModel.ITEM_SWITCH,
+                    "선수 교체",
+                    "30",
+                    R.drawable.ic_launcher_foreground,
+                    R.drawable.ic_launcher_foreground,
+                    null
+                )
+            )
         }
         val highlightFragment = FragmentHighlight(list)
         val recodeFragment = FragmentRecode()
@@ -45,11 +81,11 @@ class ScoredetailActivity : AppCompatActivity() {
         tl_scoredetail.getTabAt(2)?.text = "Lineup"
     }
 
-    private fun initRecode(recodeFragment: FragmentRecode){
+    private fun initRecode(recodeFragment: FragmentRecode) {
         recodeFragment.name = "Recode"
     }
 
-    private fun initLineUp(lineupFragment: FragmentLineup){
+    private fun initLineUp(lineupFragment: FragmentLineup) {
         lineupFragment.name = "LineUp"
     }
 }

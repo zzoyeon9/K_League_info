@@ -15,7 +15,7 @@ class FragmentLineup : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view =inflater.inflate(R.layout.fragment_scoredetail_lineup, container, false)
+        val view = inflater.inflate(R.layout.fragment_scoredetail_lineup, container, false)
         view.textView3.text = name
 
         return view

@@ -12,32 +12,34 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         card_view:cardElevation="10dp">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/homemark_1"
-        android:layout_weight="1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/gyeongnam" />
 
-    <TextView
-        android:layout_weight="1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:gravity="center"
-        android:text="VS"
-        android:textSize="50dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/homemark_1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:src="@drawable/gyeongnam" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="VS"
+                android:textSize="50dp" />
 
 
-    <ImageView
-        android:layout_weight="1"
-        android:id="@+id/awaymark_1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/seongnam" />
-</LinearLayout>
+            <ImageView
+                android:id="@+id/awaymark_1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:src="@drawable/seongnam" />
+        </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

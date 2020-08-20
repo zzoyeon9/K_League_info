@@ -16,7 +16,6 @@ class TeamFragment : Fragment() {
 
     /**
      * @author : 구본승
-     * @throws : NULL
      * @return : root: View => fragment_team
      * @description : View가 만들어졌을때, fragment_team에서 imagebutton을 받아와 해당 버튼을 누르면 해당 버튼의 데이터를 넘겨받은 teamdetailActivity를 열어준다.
      * */
@@ -147,8 +146,6 @@ class TeamFragment : Fragment() {
 
     /**
      * @author : 구본승
-     * @throws : NULL
-     * @return : NULL
      * @description : 필수 override 함수라서 넣음
      * */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

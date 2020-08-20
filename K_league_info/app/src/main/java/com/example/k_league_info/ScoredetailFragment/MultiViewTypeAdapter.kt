@@ -20,19 +20,23 @@ class MultiViewTypeAdapter(private val list: MutableList<HighlightModel>) :
         val view: View?
         return when (viewType) {
             HighlightModel.ITEM_TIME -> {
-                view = LayoutInflater.from(parent.context).inflate(R.layout.item_time, parent, false)
+                view =
+                    LayoutInflater.from(parent.context).inflate(R.layout.item_time, parent, false)
                 TimeTypeViewHolder(view)
             }
             HighlightModel.ITEM_GOAL -> {
-                view = LayoutInflater.from(parent.context).inflate(R.layout.item_goal, parent, false)
+                view =
+                    LayoutInflater.from(parent.context).inflate(R.layout.item_goal, parent, false)
                 GoalTypeViewHolder(view)
             }
             HighlightModel.ITEM_CARD -> {
-                view = LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
+                view =
+                    LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
                 CardTypeViewHolder(view)
             }
             HighlightModel.ITEM_SWITCH -> {
-                view = LayoutInflater.from(parent.context).inflate(R.layout.item_switch, parent, false)
+                view =
+                    LayoutInflater.from(parent.context).inflate(R.layout.item_switch, parent, false)
                 SwitchTypeViewHolder(view)
             }
             else -> throw RuntimeException("알 수 없는 뷰 타입 에러")

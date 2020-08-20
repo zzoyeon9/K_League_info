@@ -9,11 +9,11 @@
         android:id="@+id/player_thumbnail"
         android:layout_width="147dp"
         android:layout_height="150dp"
+        android:src="@drawable/gk_lee"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/gk_lee" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/player_name"
@@ -23,6 +23,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/player_thumbnail"
         app:layout_constraintVertical_bias="0.118"
-        tools:layout_editor_absoluteX="176dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="176dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
