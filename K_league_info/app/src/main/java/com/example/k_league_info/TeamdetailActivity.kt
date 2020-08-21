@@ -3,6 +3,7 @@ package com.example.k_league_info
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.LinearLayout.*
+import android.widget.ScrollView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,6 +53,7 @@ class TeamdetailActivity : AppCompatActivity() {
         df_recyclerview.adapter = adapter
         adapter = TeamdetailAdapter(baseContext, boardlist)
         gk_recyclerview.adapter = adapter
+
     }
 
 
