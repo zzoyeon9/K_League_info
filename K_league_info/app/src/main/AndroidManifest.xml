@@ -11,21 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ScoredetailActivity"></activity>
+
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
+            android:theme="@style/AppTheme"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".ui.community.PostScreen"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.community.PostWrite"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ScoredetailActivity"></activity>
         <activity android:name=".PlayerActivity" />
         <activity android:name=".TeamdetailActivity" />
     </application>
