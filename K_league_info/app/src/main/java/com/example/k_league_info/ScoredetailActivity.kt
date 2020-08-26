@@ -77,7 +77,6 @@ class ScoredetailActivity : AppCompatActivity() {
         //json 형식을 CommunityBoard 형식으로 파싱하여 boardList에 삽입
         var boardList = arrayListOf<HighlightModel>()
         val gson = GsonBuilder().create()
-
         val jsonObject = JSONObject(str)
         val jsonArray = jsonObject.optJSONArray("scoreDetail")
 
@@ -121,11 +120,11 @@ class ScoredetailActivity : AppCompatActivity() {
         tl_scoredetail.getTabAt(2)?.text = "Lineup"
     }
 
-    private fun initRecode(recodeFragment: FragmentRecode){
+    private fun initRecode(recodeFragment: FragmentRecode) {
         recodeFragment.name = "Recode"
     }
 
-    private fun initLineUp(lineupFragment: FragmentLineup){
+    private fun initLineUp(lineupFragment: FragmentLineup) {
         lineupFragment.name = "LineUp"
     }
 }

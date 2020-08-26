@@ -1,4 +1,5 @@
 package com.example.k_league_info.ScoredetailFragment
+
 //1 인자 viewTypeEnum
 //2 인자 title
 //3 인자 time
@@ -9,6 +10,7 @@ package com.example.k_league_info.ScoredetailFragment
 //8 인자 team_name
 //9 인자 player
 //10 인자 컨텐츠 텍스트
+
 data class HighlightModel(
     val type: Int,
     val title: String,
@@ -20,6 +22,7 @@ data class HighlightModel(
     val teamName2: String,
     val player2: String,
     val contentString: String?) {
+
     companion object {
         const val ITEM_TIME = 0
         const val ITEM_GOAL = 1

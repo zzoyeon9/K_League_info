@@ -4,13 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.k_league_info.R
-import kotlinx.android.synthetic.main.item_score.view.*
-
 
 class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>) :
     RecyclerView.Adapter<ScoreAdapter.Holder>() {
@@ -32,7 +28,7 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
             if (ScoreBoard.awayname != "") {
                 //awayName!!.text = ScoreBoard.awayname
                 val mark = "R.drawable." + ScoreBoard.awayname
-                awayImage!!.setImageResource(R.drawable.gyeongnam)//이부분을 팀마크 파일 이름이 seoul.png면 데이터 크롤링해온 서울FC와 스트링을 똑같이 해서 고대로 복사 안되나? ex. R.drawable. + homename 이런시그로
+                awayImage!!.setImageResource(R.drawable.daegu)//이부분을 팀마크 파일 이름이 seoul.png면 데이터 크롤링해온 서울FC와 스트링을 똑같이 해서 고대로 복사 안되나? ex. R.drawable. + homename 이런시그로
 
             }
         }

@@ -21,11 +21,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.community.PostScreen" android:windowSoftInputMode="adjustResize" />
+            android:name=".ui.community.PostScreen"
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".ui.community.PostWrite" android:windowSoftInputMode="adjustResize" />
+            android:name=".ui.community.PostWrite"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".PlayerActivity" />
-        <activity android:name=".TeamdetailActivity"/>
+        <activity android:name=".TeamdetailActivity" />
     </application>
 
 </manifest>

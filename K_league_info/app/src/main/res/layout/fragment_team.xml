@@ -13,39 +13,167 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView2"
+            <SearchView
+                android:id="@+id/searchPlayerorTeam"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="검색창들어갈곳" />
+                android:layout_height="match_parent" />
 
-            <ScrollView
+
+            <!-- 1번 row -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                <ImageButton
+                    android:id="@+id/ulsanImagebutton"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTeamBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ulsan" />
 
-                    <ImageButton
-                        android:id="@+id/gangwonImagebutton"
-                        android:scaleType="fitCenter"
-                        android:layout_width="0dp"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/gangwon" />
+                <ImageButton
+                    android:id="@+id/jeonbukImagebutton"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTeamBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/jeonbuk" />
+            </LinearLayout>
 
-                    <ImageButton
-                        android:id="@+id/incheonImagebutton"
-                        android:scaleType="fitCenter"
-                        android:layout_width="0dp"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:src="@drawable/incheon" />
-                </LinearLayout>
-            </ScrollView>
+            <!-- 2번 row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/sangjuImagebutton"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTeamBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/sangju" />
+
+                <ImageButton
+                    android:id="@+id/pohangImagebutton"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTeamBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/pohang" />
+
+
+            </LinearLayout>
+
+
+            <!-- 3번 row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/daeguImagebutton"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTeamBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/daegu" />
+
+                <ImageButton
+                    android:id="@+id/seoulImagebutton"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTeamBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/seoul" />
+
+            </LinearLayout>
+
+            <!-- 4번 row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/seongnamImagebutton"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTeamBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/seongnam" />
+
+                <ImageButton
+                    android:id="@+id/gangwonImagebutton"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTeamBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/gangwon" />
+            </LinearLayout>
+
+            <!-- 5번 row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/busanImagebutton"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTeamBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/busan" />
+
+                <ImageButton
+                    android:id="@+id/gwangjuImagebutton"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTeamBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/gwangju" />
+            </LinearLayout>
+
+            <!-- 6번 row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/suwonImagebutton"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTeamBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/suwon" />
+
+                <ImageButton
+                    android:id="@+id/incheonImagebutton"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorTeamBackground"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/incheon" />
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
