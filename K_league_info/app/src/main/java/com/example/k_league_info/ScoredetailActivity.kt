@@ -15,7 +15,12 @@ class ScoredetailActivity : AppCompatActivity() {
         val data = getData()
         initViewPager(data)
     }
-
+    /**
+     * @author : 최다윗
+     * @throws : NULL
+     * @return : ArrayList<HighlightModel> => ScoredetailActivity.initViewPager
+     * @description : 임시적으로 json파일을 받아서 HighlightModel로 파싱하는 메소드
+     * */
     private fun getData(): ArrayList<HighlightModel> {
         var str = """
             { "scoreDetail" : [
@@ -29,7 +34,7 @@ class ScoredetailActivity : AppCompatActivity() {
                     "img2" : 0,
                     "teamName2" : "",
                     "player2" : "",
-                    "contentString" : "",
+                    "contentString" : ""
                 },
                 {
                     "type" : 1,
@@ -41,7 +46,7 @@ class ScoredetailActivity : AppCompatActivity() {
                     "img2" : 0,
                     "teamName2" : "",
                     "player2" : "",
-                    "contentString" : "",
+                    "contentString" : ""
                 },
                 {
                     "type" : 2,
@@ -53,7 +58,7 @@ class ScoredetailActivity : AppCompatActivity() {
                     "img2" : 0,
                     "teamName2" : "",
                     "player2" : "",
-                    "contentString" : "",
+                    "contentString" : ""
                 },
                 {
                     "type" : 3,
@@ -65,7 +70,7 @@ class ScoredetailActivity : AppCompatActivity() {
                     "img2" : 0,
                     "teamName2" : "",
                     "player2" : "",
-                    "contentString" : "",
+                    "contentString" : ""
                 }
             ]}
         """.trimIndent()
@@ -85,15 +90,15 @@ class ScoredetailActivity : AppCompatActivity() {
     }
 
     private fun initViewPager(data: ArrayList<HighlightModel>) {
-
+        /*
         val list = mutableListOf<HighlightModel>().apply {
             add(HighlightModel(HighlightModel.ITEM_TIME, "시작","오후 4시",R.drawable.ic_launcher_foreground,"","",0,"","",null))
             add(HighlightModel(HighlightModel.ITEM_GOAL, "Goal","80\'",R.drawable.ic_launcher_foreground,"","",0,"","",null))
             add(HighlightModel(HighlightModel.ITEM_CARD, "옐로카드","10\'",R.drawable.ic_launcher_foreground,"","",0,"","",null))
             add(HighlightModel(HighlightModel.ITEM_SWITCH, "선수 교체","30\'",R.drawable.ic_launcher_foreground,"","",R.drawable.ic_launcher_foreground,"","",null))
         }
-
-        val highlightFragment = FragmentHighlight(list)
+        */
+        val highlightFragment = FragmentHighlight(data)
         val recodeFragment = FragmentRecode()
         val lineupFragment = FragmentLineup()
 
