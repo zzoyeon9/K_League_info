@@ -3,5 +3,6 @@
     <color name="colorPrimary">#5050FF</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="yellow">#F9DB22</color>
     <color name="colorTeamBackground">#FFFFFF</color>
 </resources>
