@@ -6,7 +6,7 @@ K league app. made by students from KNU(located at Gangwon-do / Republic, of Kor
  
 # Brief Information about the Project
 This is the project about making application which gives users about the K1 league soccer player.
-Data will stored at the cloud(AWS).
+Data will stored at the cloud.
 
 # How to Use
 down load .apk file (not uploaded yet) at your moblie machine.
