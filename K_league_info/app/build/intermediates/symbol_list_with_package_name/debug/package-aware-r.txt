@@ -999,6 +999,7 @@ color test_mtrl_calendar_day
 color test_mtrl_calendar_day_selected
 color tooltip_background_dark
 color tooltip_background_light
+color yellow
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -1447,6 +1448,8 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable busan
+drawable button_community
+drawable comment
 drawable community_icon
 drawable daegu
 drawable design_bottom_navigation_item_background
@@ -1500,6 +1503,7 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable pohang
+drawable recommand
 drawable sangju
 drawable score_icon
 drawable seongnam
@@ -1516,6 +1520,7 @@ id BOTTOM_START
 id CRecycler
 id CTRL
 id FUNCTION
+id Highlight
 id META
 id SHIFT
 id SYM
@@ -1591,7 +1596,6 @@ id bottom
 id busanImagebutton
 id button
 id buttonPanel
-id cancel
 id cancel_action
 id cancel_button
 id card_view
@@ -1676,7 +1680,9 @@ id icon
 id icon_group
 id ifRoom
 id image
+id imageView
 id imageView2
+id imageView3
 id in_change
 id in_player
 id in_player_face
@@ -1892,7 +1898,6 @@ id title
 id titleDividerNoCustom
 id title_template
 id titles
-id tl_scoredetail
 id top
 id topPanel
 id touch_outside
@@ -1910,7 +1915,6 @@ id useLogo
 id view_offset_helper
 id visible
 id visible_removing_fragment_view_tag
-id vp_scoredetail
 id withText
 id withinBounds
 id wrap
@@ -2003,9 +2007,6 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_community
 layout fragment_score
-layout fragment_scoredetail_highlight
-layout fragment_scoredetail_lineup
-layout fragment_scoredetail_recode
 layout fragment_team
 layout item_card
 layout item_communityboard
