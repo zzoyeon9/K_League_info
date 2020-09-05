@@ -80,7 +80,7 @@ class ScoredetailActivity : AppCompatActivity() {
         val jsonObject = JSONObject(str)
         val jsonArray = jsonObject.optJSONArray("scoreDetail")
 
-        for (i in 0 until jsonArray.length()) {
+        for (i in 0 until jsonArray.length() - 1) {
             var board =
                 gson.fromJson(jsonArray.getJSONObject(i).toString(), HighlightModel::class.java)
             boardList.add(board)

@@ -56,27 +56,31 @@
         android:id="@+id/commentWindow"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#FFFFFF"
+        android:background="@android:color/darker_gray"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        >
 
         <EditText
             android:id="@+id/comment"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="99"
+            android:layout_weight="85"
+            android:background="@android:color/transparent"
             android:ems="10"
-            android:hint="댓글을 입력하세요."
+            android:layout_margin="5dp"
+            android:hint=" 댓글을 입력하세요."
             android:inputType="text" />
 
-        <Button
+        <ImageButton
             android:id="@+id/ok"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="등록" />
+            android:layout_weight="15"
+            android:background="@color/colorPrimary"
+            app:srcCompat="@android:drawable/ic_menu_send" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

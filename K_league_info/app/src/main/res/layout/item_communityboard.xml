@@ -50,20 +50,42 @@
                 android:maxLines="1"
                 android:text="내용" />
 
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/recommand"
+                app:tint="@color/yellow" />
+
             <TextView
                 android:id="@+id/recommand"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="10"
-                android:gravity="center|center_vertical"
-                android:text="추천수" />
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:padding="3dp"
+                android:text="추천" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="13dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/comment" />
 
             <TextView
                 android:id="@+id/comment"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="10"
-                android:gravity="center_horizontal|center_vertical"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:padding="3dp"
                 android:text="댓글" />
         </LinearLayout>
 
