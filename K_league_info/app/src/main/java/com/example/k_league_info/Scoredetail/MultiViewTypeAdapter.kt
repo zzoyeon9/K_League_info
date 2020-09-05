@@ -1,4 +1,4 @@
-package com.example.k_league_info.ScoredetailFragment
+package com.example.k_league_info.Scoredetail
 
 import android.util.Log
 import android.view.LayoutInflater
