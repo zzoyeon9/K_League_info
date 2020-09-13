@@ -4,7 +4,45 @@
     android:id="@+id/score_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="vertical">
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_marginRight="30dp"
+            android:id="@+id/previous"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="&lt;"
+            android:textSize="10dp"
+
+            />
+
+        <Button
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:id="@+id/calender"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="8/30"
+
+
+            />
+
+        <Button
+            android:layout_marginLeft="30dp"
+            android:id="@+id/next"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="&gt;"
+
+
+            />
+
+    </LinearLayout>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/score_card"
@@ -14,11 +52,15 @@
         card_view:cardElevation="10dp">
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="150dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
             <ImageView
-                android:id="@+id/homemark_1"
+                android:id="@+id/homemark"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
@@ -28,17 +70,44 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="center|bottom"
                 android:text="VS"
                 android:textSize="50dp" />
 
 
             <ImageView
-                android:id="@+id/awaymark_1"
+                android:id="@+id/awaymark"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
                 android:src="@drawable/seongnam" />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/homename"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="1팀"
+                    android:textColor="#000000"
+                    android:gravity="left"
+                    android:layout_marginLeft="35dp"
+                    android:textSize="30dp" />
+                <TextView
+                    android:id="@+id/awayname"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:textColor="#000000"
+                    android:text="2팀"
+                    android:gravity="right"
+                    android:layout_marginRight="30dp"
+                    android:textSize="30dp" />
+        </LinearLayout>
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
