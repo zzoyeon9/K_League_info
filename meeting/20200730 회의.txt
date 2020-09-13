@@ -1,0 +1,70 @@
+﻿BA (Business Architect)
+: 조직이 하는 일, 또는 비즈니스의 전반적 이해를 바탕으로 전체
+비즈니스 프로세스 또는 IT 전략에 대한 설계 담당
+-> 본승
+
+AA (Application Architect)
+: 비즈니스 프로세스 설계를 바탕으로 실제 사용할 수 있는 ERP등과
+같은 IT 솔루션을 설계하는 역할
+(인터페이스, 업무 관련 모듈/기능 설계 등)
+-> 강현
+
+TA (Technical Architect)
+: 비즈니스 운영을 위한 IT 시스템의 환경 설계하는 역할
+(네트워크부터 서버, 소프트웨어등을 어떻게 구성할 것인지 설계)
+-> 연준
+
+SA (Solutions Architect)
+: 프로젝트나 어떠한 비즈니스 요구사항에 따라, 개발 환경과 같은
+솔루션에 대한 설계를 담당 (SA 깊게, EA 넓게)
+-> 다윗
+
+DA (Data Architect)
+: 비즈니스나 프로젝트 전체의 데이터와 관련된 아키텍처 담당.
+회사에 어떠한 데이터가 있는지, 그리고 어떤 데이터가 필요한지 종합
+분석 후에 데이터 접근-관리-처리에 대해 설계
+-> 성원
+
+// 확정 아님
+
+
+ > branch 하나
+develop 가져오고 (pull)
+local 개인적으로 branch (remote 업로드 x)
+commit 후에 pull(fetch + merge) -> push
+
+http://amazingguni.github.io/blog/2016/03/git-branch-%EA%B7%9C%EC%B9%99
+
+
+ # need 
+nav or score
+
+
+다윗
+: scoredetail
+: navi 완료하면 연동 후 끝
+: nav를 살리면 됨
+: score 클릭 시 event 발생해야함 근데 아직 안됨
+: 불러올 데이터 범위 정확히 알아야함
+: 현재 label 만드는 중
+
+
+연준
+: navi test 해야함
+: crawling 수정(id따오는 식으로)
+
+
+성원
+: 노트북 메롱메롱
+: 노트북 고치면 team page랑 연락해서 연동
+
+
+강현
+: 글목록보는거
+: local에 있는거 다시 올려줌
+: recycler view 되어있음
+
+
+본승
+: navi 들어가는거
+: player 넘어가는거
