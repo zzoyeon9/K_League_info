@@ -21,8 +21,8 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
         //이제 가져온 위젯들(ImageView, TextView)의 소스, text를 크롤링해온 데이터로 바꿔줌
         fun bind(scoreBoard: ScoreBoard, context: Context) {
 
-            homeName.setText(scoreBoard.homename)
-
+            homeName.text = scoreBoard.homename
+// 홈팀 동기화
             var homeResName = "@drawable/"
             val homeKorToEng = scoreBoard.homename
             when (homeKorToEng) {
@@ -48,8 +48,8 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
 
 
 
-
-            awayName.setText(scoreBoard.awayname)
+//어웨이팀 동기화
+            awayName.text = scoreBoard.awayname
 
             var awayResName = "@drawable/"
             val awayKorToEng = scoreBoard.awayname
