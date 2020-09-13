@@ -17,9 +17,10 @@ class ScoreFragment : Fragment() {
     var gameList = arrayListOf<ScoreBoard>()
 
     var boardList = arrayListOf<ScoreBoard>(
-        ScoreBoard("제목자리", "내용자리", "추천수", "댓글수")
-
-
+        ScoreBoard("서울", "강원"),
+        ScoreBoard("대구", "울산"),
+        ScoreBoard("전북", "포항"),
+        ScoreBoard("수원", "경남")
     )
 
     override fun onCreateView(

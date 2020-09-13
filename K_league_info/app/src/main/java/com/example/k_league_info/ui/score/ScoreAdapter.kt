@@ -5,46 +5,76 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.k_league_info.R
 
 class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>) :
     RecyclerView.Adapter<ScoreAdapter.Holder>() {
     //위젯들(ImageView, TextView)을 변수로 가져옴
-    inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
-        val homeImage = itemView?.findViewById<ImageView>(R.id.homemark_1)
-        val awayImage = itemView?.findViewById<ImageView>(R.id.awaymark_1)
-
+    inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val homeImage = itemView.findViewById<ImageView>(R.id.homemark)
+        val awayImage = itemView.findViewById<ImageView>(R.id.awaymark)
+        val homeName = itemView.findViewById<TextView>(R.id.homename)
+        val awayName = itemView.findViewById<TextView>(R.id.awayname)
 
         //이제 가져온 위젯들(ImageView, TextView)의 소스, text를 크롤링해온 데이터로 바꿔줌
-        fun bind(ScoreBoard: ScoreBoard, context: Context) {
+        fun bind(scoreBoard: ScoreBoard, context: Context) {
 
-            if (ScoreBoard.homename != "") {
-                //homeName!!.text = ScoreBoard.homename
-                val mark = "R.drawable." + ScoreBoard.homename
-                homeImage!!.setImageResource(R.drawable.seoul)//이부분을 팀마크 파일 이름이 seoul.png면 데이터 크롤링해온 서울FC와 스트링을 똑같이 해서 고대로 복사 안되나? ex. R.drawable. + homename 이런시그로
+            homeName.setText(scoreBoard.homename)
 
+            var homeResName = "@drawable/"
+            val homeKorToEng = scoreBoard.homename
+            when (homeKorToEng) {
+                "서울" -> homeResName += "seoul"
+                "부산" -> homeResName += "busan"
+                "광주" -> homeResName += "gwangju"
+                "대구" -> homeResName += "daegu"
+                "전북" -> homeResName += "jeonbuk"
+                "전남" -> homeResName += "jeonnam"
+                "경남" -> homeResName += "gyeonnam"
+                "강원" -> homeResName += "gangwon"
+                "울산" -> homeResName += "ulsan"
+                "포항" -> homeResName += "pohang"
+                "상주" -> homeResName += "sangju"
+                "성남" -> homeResName += "seongnam"
+                "제주" -> homeResName += "jeju"
+                "수원" -> homeResName += "suwon"
+                "인천" -> homeResName += "incheon"
             }
-            if (ScoreBoard.awayname != "") {
-                //awayName!!.text = ScoreBoard.awayname
-                val mark = "R.drawable." + ScoreBoard.awayname
-                awayImage!!.setImageResource(R.drawable.daegu)//이부분을 팀마크 파일 이름이 seoul.png면 데이터 크롤링해온 서울FC와 스트링을 똑같이 해서 고대로 복사 안되나? ex. R.drawable. + homename 이런시그로
+            val homeResId =
+                homeImage.resources.getIdentifier(homeResName, "drawable", context.packageName)
+            homeImage.setImageResource(homeResId)
 
+
+
+
+            awayName.setText(scoreBoard.awayname)
+
+            var awayResName = "@drawable/"
+            val awayKorToEng = scoreBoard.awayname
+            when (awayKorToEng) {
+                "서울" -> awayResName += "seoul"
+                "부산" -> awayResName += "busan"
+                "광주" -> awayResName += "gwangju"
+                "대구" -> awayResName += "daegu"
+                "전북" -> awayResName += "jeonbuk"
+                "전남" -> awayResName += "jeonnam"
+                "강원" -> awayResName += "gangwon"
+                "울산" -> awayResName += "ulsan"
+                "포항" -> awayResName += "pohang"
+                "상주" -> awayResName += "sangju"
+                "성남" -> awayResName += "seongnam"
+                "제주" -> awayResName += "jeju"
+                "수원" -> awayResName += "suwon"
+                "인천" -> awayResName += "incheon"
             }
+            val awayResId =
+                awayImage.resources.getIdentifier(awayResName, "drawable", context.packageName)
+            homeImage.setImageResource(awayResId)
         }
-
-
     }
 
-    interface ItemClickListener {
-        fun onClick(view: View, position: Int)
-    }
-
-    private lateinit var itemClickListener: ItemClickListener
-
-    fun setItemClickListener(itemClickListener: ItemClickListener) {
-        this.itemClickListener = itemClickListener
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_score, parent, false)
