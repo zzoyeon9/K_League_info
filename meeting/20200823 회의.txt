@@ -1,0 +1,52 @@
+사진 data => 저장
+
+
+mongoDB User ID/PW
+
+BA
+vajHYYRbiX98v05z
+
+SA
+LX8yUZx9t08MM1v3
+
+DA
+HsgDMTTIwuiLoW30
+
+TA
+PVDegeB75Uj3bnQs
+
+AA
+Bcy9NEw1u7ybUz24
+
+
+
+Intro 화면 추가야함
+어플 로고도 있어야함
+테마색 하나 정도 있으면 굳
+
+background loading 필요
+
+community action bar 수정 요망
+
+
+record  /  lineup > 어떻게 구상해야할지
+
+
+> 크롤링 : data 넘어옴
+> 필요한 data 어떤걸 넣을건지 말해야함
+
+ > 연준's lambda = 크롤링
+ > 성원's lambda = db 연결
+   ( dnspython 뭐시기 해결해야함 )
+
+ > score data => 날짜를 추가해서 한 collection에 저장
+ > 선수단 data도 크롤링 해야할듯
+ > home 화면 날짜 추가
+
+------------------------------------------ 8월 30일까지
+ > home 화면 날짜 추가
+ > 색상 투표
+ > DB 연결 시키기
+ > 각자 필요한 데이터 뭔지 적어서 올리기
+ > line up : 선발교체명단
+    record : data.kleague.com 매치센터에 있는 data

@@ -1,0 +1,36 @@
+﻿1. 어플 페이지 넘어가는 것만이라도 간단히 완성
+
+2. 몽고DB EC2 위에 만들어서 그냥 사용
+ : 필요한 데이터 테이블 ER 그려서 톡에 올리기
+ : 컬럼명 약어로 줄이기(DA)
+
+"동빈나" 영상 시청하기 <= MongoDB
+https://www.youtube.com/watch?v=7uEDep9DFJs&list=PLRx0vPvlEmdD_AdG6fEwcfVrq5Qb3q_Ja
+
+git add --all
+git commit -m "메세지 쓰고"
+git pull
+git push
+
+토요일 9시
+---------------------- 8월 15일 까지 해오기
+
+3. 통신되는지 확인 and DB 구축
+
+4. JSON으로 데이터 편집해서 통신할수 있는지 확인
+
+5. crawling 데이터 어떻게 넣을지
+
+6. 앱 수정
+ > 추가 요구사항 회의해서 DB 수정
+
+7. 앱 꾸미기 및 완성
+
+8. 서류 오지게 쓰고 발표 끝
+
+
+
+
+
+$ view type
+ : 크롤링 데이터 input

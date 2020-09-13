@@ -1,0 +1,27 @@
+﻿beautiful soop -> crawling
+
+version 4
+
+crawling 결과 -> .html
+crawling 틀 완성
+git - 올려줌
+
+score, name, image(url 존재)
+
+S3 구조 어떻게 되있는지?
+넣는 형식?
+
+다윗 : 매일매일 정보만
+연준 : 정보 처음 긁어올때
+
+git 주소로 python 코드 확인
+
+최소한의 server
+db update
+권한 주는거
+
+http://labs.brandi.co.kr/2018/07/31/kwakjs.html
+https://gun0912.tistory.com/59
+http://progtrend.blogspot.com/2019/06/android-aws-s3.html
+
+<중간중간 공부한거 카톡에 올리면 확인해보기>
