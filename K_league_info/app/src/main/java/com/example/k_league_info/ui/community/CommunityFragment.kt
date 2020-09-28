@@ -30,7 +30,7 @@ class CommunityFragment : Fragment() {
     private fun PostList() {
         //비동기
         Runnable {
-            api.getPost().enqueue(object : Callback<JsonArray>{
+            api.getPostList().enqueue(object : Callback<JsonArray>{
                 //서버와 접속 실패
                 override fun onFailure(call: Call<JsonArray>, t: Throwable) {
                     Log.d("log",t.message)

@@ -1,20 +1,21 @@
 package com.example.k_league_info
 
+import com.example.k_league_info.ui.community.CommunityBoard
 import com.google.gson.JsonArray
+import com.google.gson.JsonObject
 import org.json.JSONObject
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface RetrofitNetwork {
     @GET("community") //API에서 사용하는 리소스 이름
-    fun getPost() : Call<JsonArray>
+    fun getPostList() : Call<JsonArray>
 
-    @FormUrlEncoded
+    @GET("community")
+    fun getPost(@Query("number") number : Integer) : Call<JsonObject>
+
     @POST("community")
-    fun setPost(@Field("title") title: JSONObject) : Call<JSONObject>
+    fun setPost(@Body communityBoard: CommunityBoard) : Call<Void>
 
     @GET("score") //API에서 사용하는 리소스 이름
     fun getPost2() : Call<JsonArray>

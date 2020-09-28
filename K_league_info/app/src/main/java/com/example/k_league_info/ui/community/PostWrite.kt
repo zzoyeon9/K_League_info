@@ -26,22 +26,21 @@ class PostWrite : AppCompatActivity() {
         setContentView(R.layout.activity_post_write)
 
         ok.setOnClickListener {
-
             val json = JSONObject()
             json.put("title", titles.text.toString())
             json.put("content", content.text.toString())
-
-            api.setPost(json).enqueue(object : Callback<JSONObject>{
-                override fun onFailure(call: Call<JSONObject>, t: Throwable) {
-                    Log.d("log", t.message)
+            val cb = CommunityBoard(0,titles.text.toString(),content.text.toString(),"0","0")
+            api.setPost(cb).enqueue(object : Callback<Void>{
+                override fun onFailure(call: Call<Void>, t: Throwable) {
+                    Toast.makeText(applicationContext,"실패하였습니다.",Toast.LENGTH_LONG).show()
                 }
 
-                override fun onResponse(call: Call<JSONObject>, response: Response<JSONObject>) {
-                    Log.d("log",response.headers().toString())
+                override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    Log.d("log",response.toString())
+                    Log.d("log",response.body().toString())
+                    Toast.makeText(applicationContext,"글이 작성되었습니다.",Toast.LENGTH_LONG).show()
                 }
-
             })
-            Toast.makeText(applicationContext,"글이 작성되었습니다.",Toast.LENGTH_LONG).show()
             finish()
         }
     }
