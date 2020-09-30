@@ -18,7 +18,7 @@ import retrofit2.Response
  */
 class PostWrite : AppCompatActivity() {
     private var retrofitClient = RetrofitClient()
-    private val retrofit = retrofitClient.getInstance()
+    private val retrofit = retrofitClient.instance
     private val api: RetrofitNetwork = retrofit.create(RetrofitNetwork::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -23,7 +23,7 @@ import retrofit2.Response
 class CommunityFragment : Fragment() {
     private var boardList = arrayListOf<CommunityBoard>()
     private var retrofitClient = RetrofitClient()
-    private val retrofit = retrofitClient.getInstance()
+    private val retrofit = retrofitClient.instance
     private val api: RetrofitNetwork = retrofit.create(
         RetrofitNetwork::class.java)
 

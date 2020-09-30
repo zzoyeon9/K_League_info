@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\M15\\K_League_info\\K_league_info\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_score.xml.flat",
-        "source": "D:\\M15\\K_League_info\\K_league_info\\app\\src\\main\\res\\layout\\item_score.xml"
-    },
-    {
         "merged": "D:\\M15\\K_League_info\\K_league_info\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_teamdetail.xml.flat",
         "source": "D:\\M15\\K_League_info\\K_league_info\\app\\src\\main\\res\\layout\\item_teamdetail.xml"
+    },
+    {
+        "merged": "D:\\M15\\K_League_info\\K_league_info\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_score.xml.flat",
+        "source": "D:\\M15\\K_League_info\\K_league_info\\app\\src\\main\\res\\layout\\item_score.xml"
     },
     {
         "merged": "D:\\M15\\K_League_info\\K_league_info\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_communityboard.xml.flat",

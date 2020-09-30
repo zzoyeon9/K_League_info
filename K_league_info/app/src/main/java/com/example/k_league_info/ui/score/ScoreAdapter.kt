@@ -17,12 +17,13 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
         val awayImage = itemView.findViewById<ImageView>(R.id.awaymark)
         val homeName = itemView.findViewById<TextView>(R.id.homename)
         val awayName = itemView.findViewById<TextView>(R.id.awayname)
-
+        val homeScore = itemView.findViewById<TextView>(R.id.homescore)
+        val awayScore = itemView.findViewById<TextView>(R.id.awayscore)
         //이제 가져온 위젯들(ImageView, TextView)의 소스, text를 크롤링해온 데이터로 바꿔줌
         fun bind(scoreBoard: ScoreBoard, context: Context) {
-
-            homeName.text = scoreBoard.homename
 // 홈팀 동기화
+            homeName.text = scoreBoard.homename
+            homeScore.text = scoreBoard.homescore
             var homeResName = "@drawable/"
             val homeKorToEng = scoreBoard.homename
             when (homeKorToEng) {
@@ -50,7 +51,7 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
 
 //어웨이팀 동기화
             awayName.text = scoreBoard.awayname
-
+            awayScore.text = scoreBoard.awayscore
             var awayResName = "@drawable/"
             val awayKorToEng = scoreBoard.awayname
             when (awayKorToEng) {
@@ -71,7 +72,7 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
             }
             val awayResId =
                 awayImage.resources.getIdentifier(awayResName, "drawable", context.packageName)
-            homeImage.setImageResource(awayResId)
+            awayImage.setImageResource(awayResId)
         }
     }
 

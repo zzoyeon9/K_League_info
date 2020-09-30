@@ -8,7 +8,43 @@
     android:orientation="vertical"
     tools:context=".ui.score.ScoreFragment">
 
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <Button
+            android:layout_marginRight="30dp"
+            android:id="@+id/previous"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="&lt;"
+            android:textSize="10dp"
+
+            />
+
+        <Button
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:id="@+id/calender"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="8/30"
+
+
+            />
+
+        <Button
+            android:layout_marginLeft="30dp"
+            android:id="@+id/next"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="&gt;"
+
+            />
+
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/score_recyclerView"
         android:layout_width="match_parent"
@@ -18,10 +54,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+
 
 </LinearLayout>
