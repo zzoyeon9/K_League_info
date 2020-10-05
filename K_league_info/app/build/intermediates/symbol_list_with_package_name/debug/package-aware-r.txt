@@ -1590,12 +1590,12 @@ id async
 id auto
 id awaymark
 id awayname
+id awayscore
 id barrier
 id beginning
 id blocking
 id bottom
 id busanImagebutton
-id button
 id buttonPanel
 id calender
 id cancel_action
@@ -1678,6 +1678,7 @@ id home
 id homeAsUp
 id homemark
 id homename
+id homescore
 id how
 id icon
 id icon_group
