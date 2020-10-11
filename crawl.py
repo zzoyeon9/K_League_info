@@ -6,6 +6,8 @@ import requests
 import datetime
 import re
 
+startTime = datetime.time()
+
 req = requests.get('http://www.kleague.com/')
 html = req.text
 soup = BeautifulSoup(html, 'lxml')
@@ -139,4 +141,8 @@ for dt in datelist:
 
         mongolist.append(json_input_str)
 
+finishTime = datetime.time()
+
 col.insert_many(mongolist)
+
+print(finishTime - startTime)
