@@ -82,9 +82,10 @@ for dt in datelist:
 
         hometeam = score_board.select_one('div.team-1 > span').text
         awayteam = score_board.select_one('div.team-2 > span').text
-        score = score_board.select_one('div.score > span').text
-        tmp = hometeam + " " + score + " " +awayteam
-        json_input_str.update({'경기결과':tmp})
+        score = score_board.select_one('div.score > span')
+        json_input_str.update({'score':score})
+        json_input_str.update({'hometeam':hometeam})
+        json_input_str.update({'awayteam':awayteam})
         json_input_str.update({'경기정보':today.replace("-","")+hometeam+awayteam})
 
         statistics_list = soup.select('#sub_tab1 li')
