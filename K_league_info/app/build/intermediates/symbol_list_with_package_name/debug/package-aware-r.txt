@@ -1449,7 +1449,6 @@ drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable busan
 drawable button_community
-drawable comment
 drawable community_icon
 drawable daegu
 drawable design_bottom_navigation_item_background
@@ -1473,6 +1472,7 @@ drawable ic_notifications_black_24dp
 drawable incheon
 drawable jeonbuk
 drawable k_league_icon
+drawable layout_community
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
 drawable material_ic_edit_black_24dp
@@ -1503,7 +1503,6 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable pohang
-drawable recommand
 drawable sangju
 drawable score_icon
 drawable seongnam
@@ -1617,8 +1616,6 @@ id clear_text
 id clip_horizontal
 id clip_vertical
 id collapseActionView
-id comment
-id commentWindow
 id confirm_button
 id container
 id content
@@ -1684,9 +1681,7 @@ id icon
 id icon_group
 id ifRoom
 id image
-id imageView
 id imageView2
-id imageView3
 id in_change
 id in_player
 id in_player_face
@@ -1784,7 +1779,6 @@ id previous
 id progress_circular
 id progress_horizontal
 id radio
-id recommand
 id refreshLayout
 id right
 id right_icon
@@ -1990,7 +1984,6 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout activity_player
-layout activity_post_screen
 layout activity_post_write
 layout activity_scoredetail
 layout activity_splash

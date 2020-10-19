@@ -19,7 +19,9 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/button_community"
+            android:foreground="?attr/selectableItemBackground"
             android:paddingLeft="20dp"
             android:paddingTop="5dp"
             android:paddingRight="20dp"
@@ -37,26 +39,53 @@
         android:layout_weight="90"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/titles"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:ems="10"
-            android:hint="제목을 입력하세요."
-            android:inputType="textPersonName" />
+            android:layout_margin="10dp"
+            android:background="@drawable/layout_community"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/content"
+            <EditText
+                android:id="@+id/titles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimary"
+                android:ems="10"
+                android:hint="제목을 입력하세요.(20자 제한)"
+                android:inputType="textPersonName"
+                android:maxLength="20"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="20dp"
-            android:ems="10"
-            android:gravity="top"
-            android:hint="내용을 입력하세요."
-            android:inputType="textPersonName" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/layout_community"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:background="@color/colorPrimary"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="내용을 입력하세요.(150자 제한)"
+                android:inputType="textMultiLine"
+                android:maxLength="150"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp" />
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -7,8 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.k_league_info.MyViewModel
 import com.example.k_league_info.R
 import com.example.k_league_info.RetrofitClient
 import com.example.k_league_info.RetrofitNetwork
@@ -19,35 +23,38 @@ import org.json.JSONArray
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
+import kotlin.collections.ArrayList
 
 class CommunityFragment : Fragment() {
-    private var boardList = arrayListOf<CommunityBoard>()
+    private var boardList = ArrayList<CommunityBoard>()
     private var retrofitClient = RetrofitClient()
-    private val retrofit = retrofitClient.instance
-    private val api: RetrofitNetwork = retrofit.create(
-        RetrofitNetwork::class.java)
-
-    private fun PostList() {
+    private val retrofit = retrofitClient.getInstance()
+    private val api: RetrofitNetwork = retrofit.create(RetrofitNetwork::class.java)
+    private val model : MyViewModel by activityViewModels()
+    private fun getPost() {
         //비동기
-        Runnable {
-            api.getPost().enqueue(object : Callback<JsonArray>{
-                //서버와 접속 실패
-                override fun onFailure(call: Call<JsonArray>, t: Throwable) {
-                    Log.d("log",t.message)
+        api.getPostList().enqueue(object : Callback<JsonArray> {
+            //서버와 접속 실패
+            override fun onFailure(call: Call<JsonArray>, t: Throwable) {
+            }
+            //서버와 접속 성공
+            override fun onResponse(call: Call<JsonArray>, response: Response<JsonArray>) {
+                val gson = GsonBuilder().create()
+                //json 형식을 CommunityBoard 형식으로 파싱하여 boardList에 삽입
+                val jsonArray = JSONArray(response.body()!!.toString())
+                for (i in 0 until jsonArray.length()) {
+                    val board = gson.fromJson(
+                        jsonArray.getJSONObject(i).toString(),
+                        CommunityBoard::class.java
+                    )
+                    boardList.add(board)
                 }
-                //서버와 접속 성공
-                override fun onResponse(call: Call<JsonArray>, response: Response<JsonArray>) {
-                    val gson = GsonBuilder().create()
-                    //json 형식을 CommunityBoard 형식으로 파싱하여 boardList에 삽입
-                    val jsonArray = JSONArray(response.body()!!.toString())
-                    for (i in 0 until jsonArray.length()) {
-                        var board = gson.fromJson(jsonArray.getJSONObject(i).toString(), CommunityBoard::class.java)
-                        boardList.add(board)
-                    }
-                    CRecycler.adapter?.notifyDataSetChanged();
-                }
-            })
-        }.run()
+                model.setBoardList(boardList.clone() as ArrayList<CommunityBoard>)
+                CRecycler.adapter?.notifyDataSetChanged()
+                refreshLayout.isRefreshing = false
+            }
+        })
     }
 
     override fun onCreateView(
@@ -55,15 +62,17 @@ class CommunityFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        PostList()
+        if (model.getBoardList() == null)
+            getPost()
+        else
+            boardList = model.getBoardList()!!
+
+
         return inflater.inflate(R.layout.fragment_community, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val decoration = DividerItemDecoration(context, 1)
-        CRecycler.addItemDecoration(decoration)
 
         val communityAdapter = activity?.let { CommunityAdapter(it, boardList) }
         CRecycler.adapter = communityAdapter
@@ -72,11 +81,9 @@ class CommunityFragment : Fragment() {
         CRecycler.layoutManager = lm
         CRecycler.setHasFixedSize(true)
 
-        //아래로 당겼을때 새로 고쳐지는 코드
         refreshLayout.setOnRefreshListener {
             boardList.clear()
-            PostList()
-            refreshLayout.isRefreshing = false
+            getPost()
         }
 
         write.setOnClickListener {
