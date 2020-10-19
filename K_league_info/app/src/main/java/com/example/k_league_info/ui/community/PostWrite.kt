@@ -15,9 +15,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-/*
-    게시물을 작성 시 보여질 화면
- */
 class PostWrite : AppCompatActivity() {
     private var retrofitClient = RetrofitClient()
     private val retrofit = retrofitClient.getInstance()
@@ -28,14 +25,6 @@ class PostWrite : AppCompatActivity() {
         setContentView(R.layout.activity_post_write)
 
         ok.setOnClickListener {
-            /*
-            val progressDialog = ProgressDialog(this@PostWrite)
-            progressDialog.setTitle("Kotlin Progress Bar")
-            progressDialog.show()
-            val progressBar = ProgressBar(this)
-             */
-
-
             Toast.makeText(applicationContext,"글 작성중입니다.",Toast.LENGTH_LONG).show()
             val json = JSONObject()
             json.put("title", titles.text.toString())

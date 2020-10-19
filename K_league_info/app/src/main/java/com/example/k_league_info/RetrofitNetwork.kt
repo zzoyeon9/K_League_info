@@ -17,10 +17,8 @@ interface RetrofitNetwork {
     @POST("community")
     fun setPost(@Body communityBoard: CommunityBoard) : Call<Void>
 
-    @GET("score") //API에서 사용하는 리소스 이름
+    @GET("/matchResult")
     fun getPost2() : Call<JsonArray>
 
-    @FormUrlEncoded
-    @POST("score")
-    fun setPost2(@Field("title") title: JSONObject) : Call<JSONObject>
+
 }

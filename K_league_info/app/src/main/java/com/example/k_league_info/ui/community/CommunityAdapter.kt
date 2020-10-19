@@ -9,10 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.k_league_info.R
 
-/*
-    리사이클러뷰 어댑터
-*/
-
 class CommunityAdapter(val context: Context, private val boardList: ArrayList<CommunityBoard>) :
     RecyclerView.Adapter<CommunityAdapter.Holder>() {
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {

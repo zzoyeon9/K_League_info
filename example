@@ -1,0 +1,117 @@
+import json
+import pymongo
+import urllib
+from selenium import webdriver
+
+# Chrome Option
+# Option1 headless mode
+chrome_option = webdriver.ChromeOptions()
+chrome_option.add_argument('headless')
+chrome_option.add_argument('--disable-gpu')
+chrome_option.add_argument('lang=ko_KR')
+
+# Chrome browser
+browser = webdriver.Chrome('chromedriver.exe', options=chrome_option)
+
+# connect website (player list in Ulsan Hyundai FC)
+browser.get("https://www.uhfc.tv/player/player_list.php")
+browser.implicitly_wait(3)
+
+# player information crawling function
+# player_num : FW/MF/DF/GK separator
+# doc_list : list of player information documents (default = [])
+# return : doc_list
+def player_info_crawling(player_num, doc_list=[]):
+    player_number = 1
+    while(True):
+        try:
+            # player select
+            player_div = browser.find_element_by_xpath(f'//*[@id="sub_wrap"]/div[{player_num}]/div[{player_number}]')
+
+            # player profile page open
+            player_div.click()
+
+            # Team : 울산현대FC FIX.
+            full_json_str = {'소속':'울산현대FC'}
+
+            # get profile table
+            profile = browser.find_element_by_xpath(f'//*[@id="sub_wrap"]/div[2]/div[2]/table/tbody')
+
+            # repeat all profile contents
+            for i in range(1,7):
+                # a line of table
+                tr = f"//tr[{i}]"
+                line = profile.find_element_by_xpath(tr)
+
+                # separate category and contents
+                category_text = line.find_element_by_tag_name('th')
+                contents_text = line.find_element_by_tag_name('td')
+
+                # initialize variable to JSON Format
+                full_json_str.update({category_text.text : contents_text.text})
+
+            # close JSON String
+            doc_list.append(full_json_str)
+
+            # sum to find the next player search
+            player_number += 1
+
+            # page backward
+            browser.back()
+        except:
+            print("loop finish : ",player_number)
+            break
+    return doc_list
+
+# FW crawling
+fw_list = player_info_crawling(2,[])
+# MF crawling
+mf_list = player_info_crawling(3,[])
+# DF crawling
+df_list = player_info_crawling(4,[])
+# GK crawling
+gk_list = player_info_crawling(5,[])
+
+'''
+MongoDB 활용
+'''
+username = 'DA'
+password = 'WVFWOfNYCA9S2fHN'
+
+# DB(='cluster' in mongo) name
+dbname = 'test'
+
+# Table(='collection' in mongo) name
+colname = 'player_info'
+
+# Server IP Address
+SERVER_IP = 'm15.fvu4o.mongodb.net'
+
+# username, password Encoding (ASCII)
+username = urllib.parse.quote_plus(username)
+password = urllib.parse.quote_plus(password)
+
+# Mongo DB connection
+client = pymongo.MongoClient(
+    'mongodb+srv://%s:%s@%s/test?retryWrites=true&w=majority' % (username, password, SERVER_IP))
+db = client[dbname]
+col = db[colname]
+
+# document insert into collection (document = 'record' in RDB)
+for i in fw_list:
+    # i convert to JSON
+    insert = json.dumps(i)
+    # insert data into MongoDB
+    col.insert_one(json.loads(insert))
+
+for i in mf_list:
+    insert = json.dumps(i)
+    col.insert_one(json.loads(insert))
+
+for i in df_list:
+    insert = json.dumps(i)
+    col.insert_one(json.loads(insert))
+
+for i in gk_list:
+    insert = json.dumps(i)
+    col.insert_one(json.loads(insert))

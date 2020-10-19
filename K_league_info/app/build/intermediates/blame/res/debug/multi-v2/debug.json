@@ -113,6 +113,22 @@
             ]
         },
         {
+            "outputFile": "C:\\Users\\YuKH\\Desktop\\project\\K_League_info\\K_league_info\\app\\build\\intermediates\\res\\merged\\debug\\values-v26_values-v26.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\YuKH\\.gradle\\caches\\transforms-2\\files-2.1\\4e039017508058e03141616af225b4eb\\appcompat-1.2.0\\res\\values-v26\\values-v26.xml",
+                    "from": {
+                        "startLines": "2,3,4,8,12,16",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,130,217,431,657,896",
+                        "endLines": "2,3,7,11,15,16",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "125,212,426,652,891,984"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "C:\\Users\\YuKH\\Desktop\\project\\K_League_info\\K_league_info\\app\\build\\intermediates\\res\\merged\\debug\\values-km_values-km.arsc.flat",
             "map": [
                 {
@@ -164,22 +180,6 @@
                         "startOffsets": "105,207,306,416,503,606,727,805,881,972,1065,1157,1251,1351,1444,1539,1633,1724,1815,1898,2002,2106,2206,2315,2424,2533,2695,3003",
                         "endColumns": "101,98,109,86,102,120,77,75,90,92,91,93,99,92,94,93,90,90,82,103,103,99,108,108,108,161,97,83",
                         "endOffsets": "202,301,411,498,601,722,800,876,967,1060,1152,1246,1346,1439,1534,1628,1719,1810,1893,1997,2101,2201,2310,2419,2528,2690,2788,3082"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "C:\\Users\\YuKH\\Desktop\\project\\K_League_info\\K_league_info\\app\\build\\intermediates\\res\\merged\\debug\\values-v26_values-v26.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\YuKH\\.gradle\\caches\\transforms-2\\files-2.1\\4e039017508058e03141616af225b4eb\\appcompat-1.2.0\\res\\values-v26\\values-v26.xml",
-                    "from": {
-                        "startLines": "2,3,4,8,12,16",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,130,217,431,657,896",
-                        "endLines": "2,3,7,11,15,16",
-                        "endColumns": "74,86,12,12,12,92",
-                        "endOffsets": "125,212,426,652,891,984"
                     }
                 }
             ]
