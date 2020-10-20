@@ -11,6 +11,7 @@ import com.example.k_league_info.ui.community.CommunityBoard
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonArray
 import kotlinx.android.synthetic.main.activity_teamdetail.*
+import kotlinx.android.synthetic.main.fragment_community.*
 import org.json.JSONArray
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,43 +21,38 @@ class TeamdetailActivity : AppCompatActivity() {
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var adapter: TeamdetailAdapter
     private var retrofitClient = RetrofitClient()
-    private val retrofit = retrofitClient.instance
-    private val api: RetrofitNetwork = retrofit.create(
-        RetrofitNetwork::class.java)
+    private val retrofit = retrofitClient.getInstance()
+    private val api: RetrofitNetwork = retrofit.create(RetrofitNetwork::class.java)
 
     private val boardlist = arrayListOf<TeamdetailBoard>(
-//        TeamdetailBoard("https://i.pinimg.com/originals/60/00/35/600035c0e351085fced5e3473da3a147.jpg", "ryan01"),
-//        TeamdetailBoard("https://i.pinimg.com/originals/bc/6f/64/bc6f6464d2abe64a7eb3e940654e1b3a.png","ryan02"),
-//        TeamdetailBoard("https://i.pinimg.com/474x/96/48/e9/9648e97d392b54acbef76ccacbfffc12.jpg","ryan03"),
-//        TeamdetailBoard("https://i.pinimg.com/originals/8a/e8/8e/8ae88e20a679dd60f5d6f237039bee08.jpg","ryan04")
+        TeamdetailBoard("https://i.pinimg.com/originals/60/00/35/600035c0e351085fced5e3473da3a147.jpg", "ryan01"),
+        TeamdetailBoard("https://i.pinimg.com/originals/bc/6f/64/bc6f6464d2abe64a7eb3e940654e1b3a.png","ryan02"),
+        TeamdetailBoard("https://i.pinimg.com/474x/96/48/e9/9648e97d392b54acbef76ccacbfffc12.jpg","ryan03"),
+        TeamdetailBoard("https://i.pinimg.com/originals/8a/e8/8e/8ae88e20a679dd60f5d6f237039bee08.jpg","ryan04")
     )
 
-
-    private fun PostList() {
+    private fun getPost() {
         //비동기
-        Runnable {
-            api.getPost().enqueue(object : Callback<JsonArray> {
-                //서버와 접속 실패
-                override fun onFailure(call: Call<JsonArray>, t: Throwable) {
-                    Log.d("log",t.message)
+        api.getPostList().enqueue(object : Callback<JsonArray> {
+            //서버와 접속 실패
+            override fun onFailure(call: Call<JsonArray>, t: Throwable) {
+            }
+            //서버와 접속 성공
+            override fun onResponse(call: Call<JsonArray>, response: Response<JsonArray>) {
+                val gson = GsonBuilder().create()
+                //json 형식을 TeamdetailBoard 형식으로 파싱하여 boardlist에 삽입
+                val jsonArray = JSONArray(response.body()!!.toString())
+                for (i in 0 until jsonArray.length()) {
+                    var board = gson.fromJson(jsonArray.getJSONObject(i).toString(), TeamdetailBoard::class.java)
+                    boardlist.add(board)
                 }
-                //서버와 접속 성공
-                override fun onResponse(call: Call<JsonArray>, response: Response<JsonArray>) {
-                    val gson = GsonBuilder().create()
-                    //json 형식을 TeamdetailBoard 형식으로 파싱하여 boardlist에 삽입
-                    val jsonArray = JSONArray(response.body()!!.toString())
-                    for (i in 0 until jsonArray.length()) {
-                        var board = gson.fromJson(jsonArray.getJSONObject(i).toString(), TeamdetailBoard::class.java)
-                        boardlist.add(board)
-                    }
-                    staff_recyclerview.adapter?.notifyDataSetChanged()
-                    fw_recyclerview.adapter?.notifyDataSetChanged()
-                    mf_recyclerview.adapter?.notifyDataSetChanged()
-                    df_recyclerview.adapter?.notifyDataSetChanged()
-                    gk_recyclerview.adapter?.notifyDataSetChanged()
-                }
-            })
-        }.run()
+                staff_recyclerview.adapter?.notifyDataSetChanged()
+                fw_recyclerview.adapter?.notifyDataSetChanged()
+                mf_recyclerview.adapter?.notifyDataSetChanged()
+                df_recyclerview.adapter?.notifyDataSetChanged()
+                gk_recyclerview.adapter?.notifyDataSetChanged()
+            }
+        })
     }
 
     /**
