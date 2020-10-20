@@ -1,80 +1,46 @@
+import json
 import urllib
 import pymongo
 from bs4 import BeautifulSoup
-from selenium import webdriver
-from datetime import datetime
-import json
+import requests
+import datetime
 import re
-import time
 
-def matchData():
-    print("in?")
-    driver.find_element_by_xpath('/html/body/div[3]/div/div[1]/div[2]/div[1]/nav/a[3]').click()
+req = requests.get('http://www.kleague.com/')
+html = req.text
+soup = BeautifulSoup(html, 'lxml')
+schedule = soup.select_one('div.nav-menu > div > div > ul > li:nth-child(3) > a')
 
-    info = driver.find_element_by_xpath('/html/body/div[2]/div/div[1]').text.split(" / ")
-    json_input_str = {'date': info[0]}
-    json_input_str.update({'viewer': info[1]})
-    json_input_str.update({'place': info[2]})
+req = requests.get('http://www.kleague.com' + schedule.attrs['href'])
+html = req.text
+soup = BeautifulSoup(html, 'lxml')
+tables = soup.select('table.table')
 
-    team1 = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div[1]/span').text  # team1 이름
-    team2 = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div[3]/span').text  # team2 이름
-    matchScore = driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div[2]/span').text  # 경기 결과
-    json_input_str.update({'team1': team1})
-    json_input_str.update({'team2': team2})
-    json_input_str.update({'score': matchScore})
+# MongoDB 활용
+username = 'DA'
+password = 'WVFWOfNYCA9S2fHN'
 
-    score = driver.find_elements_by_class_name('score')  # 경기세부내용
-    scorelist = []
-    for k in range(1, len(score), 2):
-        if (score[k] == ""):
-            continue
+# DB(='cluster' in mongo) name
+dbname = 'score_detail'
 
-        if (score[k] != " " and score[k] != "\n"):  # 이게 있어야 점유율이 나옴
-            string = score[k].text + ":" + score[k + 1].text
-            if (string == ":"):
-                continue
-            scorelist.append(string)
+# Table(='collection' in mongo) name
+colname = str(datetime.datetime.now().year) + str(datetime.datetime.now().month)
 
-    title = driver.find_elements_by_class_name('title')
-    titlelist = []
-    for k in title:
-        if (k != " "):
-            titlelist.append(k.text)
+# Server IP Address
+SERVER_IP = 'm15.fvu4o.mongodb.net'
 
-    for a in range(len(scorelist)):
-        json_input_str.update({titlelist[a]: scorelist[a]})
+# username, password Encoding (ASCII)
+username = urllib.parse.quote_plus(username)
+password = urllib.parse.quote_plus(password)
 
-    dt = info[0][0:10].replace("-", "")
-    file_path = "./" + dt + team1 + team2 + ".json"
-    with open(file_path, 'w') as make_file:
-        print("made file : " + file_path)
-        json.dump(json_input_str, make_file, indent=4)
+# Mongo DB connection
+mongodb = pymongo.MongoClient(
+    'mongodb+srv://%s:%s@%s/test?retryWrites=true&w=majority' % (username, password, SERVER_IP))
+db = mongodb[dbname]
+col = db[colname]
 
-    with open(file_path, 'r') as read_file:
-        print("read")
-        json_data = json.load(read_file)
-        print(json_data)
+db.drop_collection(colname)
 
-    time.sleep(1)
-    driver.back()
-
-
-start = time.time()
-
-# Chrome Option
-# Option1 headless mode
-chrome_option = webdriver.ChromeOptions()
-chrome_option.add_argument('headless')
-chrome_option.add_argument('--disable-gpu')
-chrome_option.add_argument('lang=ko_KR')
-
-# Chrome browser
-driver = webdriver.Chrome('chromedriver.exe', options=chrome_option)
-
-# 게시물 주소로 이동
-driver.get('http://kleague.com/schedule?ch=063054&select_league=1')
-html = driver.page_source
-soup = BeautifulSoup(html, 'html.parser')
 
 # 한글
 hangul = re.compile('[\u3131-\u3163\uac00-\ud7a3]+')
@@ -84,23 +50,94 @@ dates = str(soup.find_all('th'))
 dates = re.sub('<.+?>', '', dates, 0).strip()  # <th..></th> 이런 태그 없애는 용도
 dates = dates.replace(".", "-").replace(" ", "").replace("[", "").replace("]", "")
 dates = re.sub(hangul, '', dates)  # 한글로 출력되는 요일 제거
+datelist = dates.split(",")
 
-# 날짜 개수
-date = soup.select('thead > tr > th')
+# 현재 날짜 받아오기
+now = str(datetime.datetime.now().year) + "-" + str(datetime.datetime.now().month) + "-" + str(datetime.datetime.now().day)
 
-arr = driver.find_elements_by_css_selector('button.btn.btn-outline-blue.btn_matchcenter')
-# print(range(len(arr)))
-# arr[1].click()
-# time.sleep(1)
-# matchData()
 
-for a in arr:
-    # 월 뒤로가기
-    # driver.find_element_by_xpath('/html/body/div[2]/div/div[1]/div/div[2]/div[1]/a[1]').click()
-    a.click()
-    time.sleep(1)
-    matchData()
 
-end = time.time()
-print(end - start)
-driver.close()
+# DB에 넣을 list
+mongolist = []
+
+for dt in datelist:
+    today = dt
+    # 경기날짜가 현재 날짜보다 미래면 반복문 종료
+    if dt > now:
+        break
+    match_list = []
+    for table in tables:
+        if table['id'] == today:
+            for button in table.select('button.btn.btn-outline-blue.btn_matchcenter'):
+                match_list.append(button['gs_idx'])
+            break
+    for match in match_list:
+        req = requests.get('http://www.kleague.com/match?vw=live&gs_idx=' + match)
+        html = req.text
+        soup = BeautifulSoup(html, 'lxml')
+        # 통계
+        score_board = soup.select_one('div.score-board.clearfix')
+        json_input_str = {'날짜':today}
+
+
+        hometeam = score_board.select_one('div.team-1 > span').text
+        awayteam = score_board.select_one('div.team-2 > span').text
+        score = score_board.select_one('div.score > span')
+        json_input_str.update({'score':score})
+        json_input_str.update({'hometeam':hometeam})
+        json_input_str.update({'awayteam':awayteam})
+        json_input_str.update({'경기정보':today.replace("-","")+hometeam+awayteam})
+
+        statistics_list = soup.select('#sub_tab1 li')
+        for statistics in statistics_list:
+            title = statistics.select_one('div.title').text.strip()
+            score = statistics.select('div.score')
+            home = score[0].text.strip()
+            away = score[1].text.strip()
+            json_input_str.update({title:home+":"+away})
+
+        timeline = soup.select('ul.timeline.list-unstyled li')
+        timelinelist = []
+        for time in timeline:
+            minute = time.select_one('div.min span').text
+            context = time.select_one('div.context').text
+            str = minute + context
+            timelinelist.append(str)
+        json_input_str.update({'경기데이터':timelinelist})
+
+        lineup = soup.select_one('div.lineup-body')
+        lineup_gk = lineup.select_one('ul.list-unstyled.gk')
+        lineup_df = lineup.select_one('ul.list-unstyled.df')
+        lineup_mf = lineup.select_one('ul.list-unstyled.mf')
+        lineup_fw = lineup.select_one('ul.list-unstyled.fw')
+        lineup_bench = lineup.select_one('ul.list-unstyled.bench')
+
+        playerlist_home = []
+        for player in lineup_gk.select('div.homeLineUp'):
+            playerlist_home.append("gk "+player.text.strip())
+        for player in lineup_df.select('div.homeLineUp'):
+            playerlist_home.append("df "+player.text.strip())
+        for player in lineup_mf.select('div.homeLineUp'):
+            playerlist_home.append("mf "+player.text.strip())
+        for player in lineup_fw.select('div.homeLineUp'):
+            playerlist_home.append("fw "+player.text.strip())
+        for player in lineup_bench.select('div.homeLineUp'):
+            playerlist_home.append("bench "+player.text.strip())
+        json_input_str.update({'homelineup':playerlist_home})
+
+        playerlist_away = []
+        for player in lineup_gk.select('div.awayLineUp'):
+            playerlist_away.append("gk "+player.text.strip())
+        for player in lineup_df.select('div.awayLineUp'):
+            playerlist_away.append("df "+player.text.strip())
+        for player in lineup_mf.select('div.awayLineUp'):
+            playerlist_away.append("mf "+player.text.strip())
+        for player in lineup_fw.select('div.awayLineUp'):
+            playerlist_away.append("fw "+player.text.strip())
+        for player in lineup_bench.select('div.awayLineUp'):
+            playerlist_away.append("bench "+player.text.strip())
+        json_input_str.update({'awaylineup': playerlist_away})
+
+        mongolist.append(json_input_str)
+
+col.insert_many(mongolist)

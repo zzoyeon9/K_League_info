@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\M15\\K_League_info\\K_league_info\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
+            "outputFile": "C:\\Users\\bvon9\\Documents\\K_League_info\\K_league_info\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\zzoye\\.gradle\\caches\\transforms-2\\files-2.1\\4e039017508058e03141616af225b4eb\\appcompat-1.2.0\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "C:\\Users\\bvon9\\.gradle\\caches\\transforms-2\\files-2.1\\4e039017508058e03141616af225b4eb\\appcompat-1.2.0\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",
