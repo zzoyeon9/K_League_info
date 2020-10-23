@@ -1,4 +1,4 @@
-#Sun Oct 11 20:44:05 KST 2020
-base.0=C\:\\Users\\bvon9\\Documents\\K_League_info\\K_league_info\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Tue Oct 20 19:55:00 KST 2020
+base.0=C\:\\Android_Kotlin_Examples\\K_League_info\\K_league_info\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

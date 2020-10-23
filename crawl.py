@@ -5,6 +5,12 @@ from bs4 import BeautifulSoup
 import requests
 import datetime
 import re
+import time
+
+# pip install 해야하는 것들
+# bs4, pymongo, requests, lxml, dnspython
+
+startTime = time.time()
 
 req = requests.get('http://www.kleague.com/')
 html = req.text
@@ -55,19 +61,17 @@ datelist = dates.split(",")
 # 현재 날짜 받아오기
 now = str(datetime.datetime.now().year) + "-" + str(datetime.datetime.now().month) + "-" + str(datetime.datetime.now().day)
 
-
-
 # DB에 넣을 list
 mongolist = []
 
 for dt in datelist:
-    today = dt
+    print(dt)
     # 경기날짜가 현재 날짜보다 미래면 반복문 종료
-    if dt > now:
+    if dt >= now:
         break
     match_list = []
     for table in tables:
-        if table['id'] == today:
+        if table['id'] == dt:
             for button in table.select('button.btn.btn-outline-blue.btn_matchcenter'):
                 match_list.append(button['gs_idx'])
             break
@@ -77,16 +81,16 @@ for dt in datelist:
         soup = BeautifulSoup(html, 'lxml')
         # 통계
         score_board = soup.select_one('div.score-board.clearfix')
-        json_input_str = {'날짜':today}
+        json_input_str = {'날짜':dt}
 
 
         hometeam = score_board.select_one('div.team-1 > span').text
         awayteam = score_board.select_one('div.team-2 > span').text
-        score = score_board.select_one('div.score > span')
+        score = score_board.select_one('div.score > span').text
         json_input_str.update({'score':score})
         json_input_str.update({'hometeam':hometeam})
         json_input_str.update({'awayteam':awayteam})
-        json_input_str.update({'경기정보':today.replace("-","")+hometeam+awayteam})
+        json_input_str.update({'경기정보':dt.replace("-","")+hometeam+awayteam})
 
         statistics_list = soup.select('#sub_tab1 li')
         for statistics in statistics_list:
