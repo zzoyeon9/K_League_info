@@ -24,10 +24,10 @@ interface RetrofitNetwork {
     @GET("/matchResult")
     fun getPost2() : Call<JsonArray>
 
-    @GET("teamdetail")  // API에서 사용하는 리소스 이름
+    @GET("team_detail_player_list")  // API에서 사용하는 리소스 이름
     fun getPostTeamdetail() : Call<JsonArray>
 
-    @GET("playerdetail")  // API에서 사용하는 리소스 이름
+    @GET("???")  // API에서 사용하는 리소스 이름
     fun getPostPlayerdetail() : Call<JsonArray>
 
 }
