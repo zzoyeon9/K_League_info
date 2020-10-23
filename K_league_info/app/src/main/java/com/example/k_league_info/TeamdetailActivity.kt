@@ -43,8 +43,10 @@ class TeamdetailActivity : AppCompatActivity() {
                 //서버와 접속 성공
                 override fun onResponse(call: Call<JsonArray>, response: Response<JsonArray>) {
                     val gson = GsonBuilder().create()
+                    Log.d("@@@@@@@@@@", response.toString())
+                    Log.d("이건 뭐냐 ? ", response.body().toString())
                     //json 형식을 TeamdetailBoard 형식으로 파싱하여 boardlist에 삽입
-                    val jsonArray = JSONArray(response.body()!!.toString())
+                    val jsonArray = JSONArray(response.body().toString())
                     for (i in 0 until jsonArray.length()) {
                         var board = gson.fromJson(jsonArray.getJSONObject(i).toString(), TeamdetailBoard::class.java)
                         print(board)
@@ -69,6 +71,7 @@ class TeamdetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState : Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_teamdetail)
+        // PostList()  이거 고쳐야함
 
         var teamName: String? = getIntent().getStringExtra("teamName")
         teamLogo.setImageResource(baseContext.resources.getIdentifier(teamName, "drawable", baseContext.packageName))
