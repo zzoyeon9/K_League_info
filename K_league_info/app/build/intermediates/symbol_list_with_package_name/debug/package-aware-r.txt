@@ -1589,7 +1589,6 @@ id async
 id auto
 id awaymark
 id awayname
-id awayscore
 id barrier
 id beginning
 id blocking
@@ -1676,7 +1675,6 @@ id home
 id homeAsUp
 id homemark
 id homename
-id homescore
 id how
 id icon
 id icon_group
@@ -1793,6 +1791,7 @@ id sangjuImagebutton
 id save_non_transition_alpha
 id save_overlay_view
 id scale
+id score
 id score_1
 id score_2
 id score_card
