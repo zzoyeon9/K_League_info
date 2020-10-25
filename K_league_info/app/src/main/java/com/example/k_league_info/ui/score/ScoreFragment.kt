@@ -55,11 +55,7 @@ class ScoreFragment : Fragment() {
                     for (i in 0 until jsonArray.length()) {
 
                         var board = gson.fromJson(jsonArray.getJSONObject(i).toString(), ScoreBoard::class.java)
-
-
                         var boardList = arrayListOf<HighlightModel>()
-
-
                         val jsonArray1 = jsonArray.getJSONObject(i).getJSONArray("scoreDetail")
 
                         for (j in 0 until jsonArray1.length()) {
@@ -69,8 +65,6 @@ class ScoreFragment : Fragment() {
                         }
                         board.scoreDetail = boardList
                         gameList.add(board)
-
-                        Log.d("log", board.scoreDetail.toString())
                     }
                     score_recyclerView.adapter?.notifyDataSetChanged();
                 }

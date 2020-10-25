@@ -82,11 +82,8 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
                 awayImage.resources.getIdentifier(awayResName, "drawable", context.packageName)
             awayImage.setImageResource(awayResId)
             itemView.setOnClickListener {
-                val intent = Intent(context,ScoredetailActivity::class.java)
+                val intent = Intent(context, ScoredetailActivity::class.java)
                 intent.putExtra("score", scoreBoard)
-                val score = intent.getParcelableExtra<ScoreBoard>("score")
-                Log.d("test", intent.putExtra("score", scoreBoard).toString())
-                Log.d("result", score.toString())
                 context.startActivity(intent)
             }
         }

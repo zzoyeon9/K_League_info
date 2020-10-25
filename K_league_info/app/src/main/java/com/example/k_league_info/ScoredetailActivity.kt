@@ -2,8 +2,10 @@ package com.example.k_league_info
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SortedList
 import com.example.k_league_info.Scoredetail.*
 import kotlinx.android.synthetic.main.activity_scoredetail.*
 import com.example.k_league_info.ui.score.ScoreBoard
@@ -13,6 +15,9 @@ class ScoredetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scoredetail)
         //받아온 scoreBoard
+        if (intent.getParcelableExtra<ScoreBoard>("score") == null) {
+            Log.d("log", "null")
+        }
         val data = intent.getParcelableExtra<ScoreBoard>("score")
         score.text = data.score
 

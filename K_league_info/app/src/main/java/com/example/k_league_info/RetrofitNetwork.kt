@@ -21,7 +21,7 @@ interface RetrofitNetwork {
     @HTTP(method = "DELETE", path = "community", hasBody = true)
     fun deleteCommunity(@Body number : JSONObject) : Call<ResponseBody>
 
-    @GET("/matchResult")
+    @GET("score")
     fun getPost2() : Call<JsonArray>
 
     @GET("team_detail_player_list")  // API에서 사용하는 리소스 이름
