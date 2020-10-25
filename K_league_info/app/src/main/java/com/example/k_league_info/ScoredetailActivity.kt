@@ -14,10 +14,10 @@ class ScoredetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_scoredetail)
         //받아온 scoreBoard
         val data = intent.getParcelableExtra<ScoreBoard>("score")
-        score_1.text = data.homescore
-        score_2.text = data.awayscore
+        score.text = data.score
+
         var homeResName = "@drawable/"
-        val homeKorToEng = data.homename
+        val homeKorToEng = data.hometeam
         when (homeKorToEng) {
             "서울" -> homeResName += "seoul"
             "부산" -> homeResName += "busan"
@@ -40,7 +40,7 @@ class ScoredetailActivity : AppCompatActivity() {
         team_logo_1.setImageResource(homeResId)
 
         var awayResName = "@drawable/"
-        val awayKorToEng = data.awayname
+        val awayKorToEng = data.awayteam
         when (awayKorToEng) {
             "서울" -> awayResName += "seoul"
             "부산" -> awayResName += "busan"

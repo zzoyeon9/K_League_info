@@ -1525,7 +1525,6 @@ id SHIFT
 id SYM
 id TOP_END
 id TOP_START
-id VS
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
@@ -1792,8 +1791,6 @@ id save_non_transition_alpha
 id save_overlay_view
 id scale
 id score
-id score_1
-id score_2
 id score_card
 id score_fragment
 id score_item
