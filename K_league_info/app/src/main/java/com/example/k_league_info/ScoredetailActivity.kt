@@ -5,90 +5,65 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.k_league_info.Scoredetail.*
-import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_scoredetail.*
-import org.json.JSONObject
+import com.example.k_league_info.ui.score.ScoreBoard
 
 class ScoredetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scoredetail)
-
-        val data = getData()
-        init(data)
-    }
-    /**
-     * @author : 최다윗
-     * @throws : NULL
-     * @return : ArrayList<HighlightModel> => ScoredetailActivity.initViewPager
-     * @description : 임시적으로 json파일을 받아서 HighlightModel로 파싱하는 메소드
-     * */
-    private fun getData(): ArrayList<HighlightModel> {
-        var str = """
-            { "scoreDetail" : [
-                {
-                    "type" : 0,
-                    "title" : "시작",
-                    "time" : "오후4시",
-                    "img" : 0,
-                    "teamName" : "",
-                    "player" : "",
-                    "img2" : 0,
-                    "teamName2" : "",
-                    "player2" : "",
-                    "contentString" : ""
-                },
-                {
-                    "type" : 1,
-                    "title" : "goal",
-                    "time" : "80",
-                    "img" : 0,
-                    "teamName" : "서울",
-                    "player" : "다윗",
-                    "img2" : 0,
-                    "teamName2" : "",
-                    "player2" : "",
-                    "contentString" : "패널티"
-                },
-                {
-                    "type" : 2,
-                    "title" : "옐로카드",
-                    "time" : "20",
-                    "img" : 0,
-                    "teamName" : "서울",
-                    "player" : "다윗",
-                    "img2" : 0,
-                    "teamName2" : "",
-                    "player2" : "",
-                    "contentString" : ""
-                },
-                {
-                    "type" : 3,
-                    "title" : "선수교체",
-                    "time" : "50",
-                    "img" : 0,
-                    "teamName" : "서울",
-                    "player" : "다윗",
-                    "img2" : 0,
-                    "teamName2" : "서울",
-                    "player2" : "본승",
-                    "contentString" : ""
-                }
-            ]}
-        """.trimIndent()
-        //json 형식을 CommunityBoard 형식으로 파싱하여 boardList에 삽입
-        var boardList = arrayListOf<HighlightModel>()
-        val gson = GsonBuilder().create()
-        val jsonObject = JSONObject(str)
-        val jsonArray = jsonObject.optJSONArray("scoreDetail")
-
-        for (i in 0 until jsonArray.length()) {
-            var board =
-                gson.fromJson(jsonArray.getJSONObject(i).toString(), HighlightModel::class.java)
-            boardList.add(board)
+        //받아온 scoreBoard
+        val data = intent.getParcelableExtra<ScoreBoard>("score")
+        score_1.text = data.homescore
+        score_2.text = data.awayscore
+        var homeResName = "@drawable/"
+        val homeKorToEng = data.homename
+        when (homeKorToEng) {
+            "서울" -> homeResName += "seoul"
+            "부산" -> homeResName += "busan"
+            "광주" -> homeResName += "gwangju"
+            "대구" -> homeResName += "daegu"
+            "전북" -> homeResName += "jeonbuk"
+            "전남" -> homeResName += "jeonnam"
+            "경남" -> homeResName += "gyeonnam"
+            "강원" -> homeResName += "gangwon"
+            "울산" -> homeResName += "ulsan"
+            "포항" -> homeResName += "pohang"
+            "상주" -> homeResName += "sangju"
+            "성남" -> homeResName += "seongnam"
+            "제주" -> homeResName += "jeju"
+            "수원" -> homeResName += "suwon"
+            "인천" -> homeResName += "incheon"
         }
-        return boardList
+        val homeResId =
+            team_logo_1.resources.getIdentifier(homeResName, "drawable",packageName)
+        team_logo_1.setImageResource(homeResId)
+
+        var awayResName = "@drawable/"
+        val awayKorToEng = data.awayname
+        when (awayKorToEng) {
+            "서울" -> awayResName += "seoul"
+            "부산" -> awayResName += "busan"
+            "광주" -> awayResName += "gwangju"
+            "대구" -> awayResName += "daegu"
+            "전북" -> awayResName += "jeonbuk"
+            "전남" -> awayResName += "jeonnam"
+            "강원" -> awayResName += "gangwon"
+            "울산" -> awayResName += "ulsan"
+            "포항" -> awayResName += "pohang"
+            "상주" -> awayResName += "sangju"
+            "성남" -> awayResName += "seongnam"
+            "제주" -> awayResName += "jeju"
+            "수원" -> awayResName += "suwon"
+            "인천" -> awayResName += "incheon"
+        }
+        val awayResId =
+            team_logo_2.resources.getIdentifier(awayResName, "drawable", packageName)
+        team_logo_2.setImageResource(awayResId)
+
+        init(data.scoreDetail)
     }
+
 
     private fun init(data: ArrayList<HighlightModel>) {
         val mVTAdapter = MultiViewTypeAdapter(data)

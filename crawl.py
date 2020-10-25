@@ -77,7 +77,9 @@ for dt in datelist:
         soup = BeautifulSoup(html, 'lxml')
         # 통계
         score_board = soup.select_one('div.score-board.clearfix')
-        json_input_str = {'날짜':today}
+        todays = today.split("-")
+        today = ''.join(todays)
+        json_input_str = {'date':today}
 
 
         hometeam = score_board.select_one('div.team-1 > span').text
