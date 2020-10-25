@@ -1,6 +1,8 @@
 package com.example.k_league_info.ui.score
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +10,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.k_league_info.R
+import com.example.k_league_info.ScoredetailActivity
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>) :
     RecyclerView.Adapter<ScoreAdapter.Holder>() {
@@ -17,15 +23,17 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
         val awayImage = itemView.findViewById<ImageView>(R.id.awaymark)
         val homeName = itemView.findViewById<TextView>(R.id.homename)
         val awayName = itemView.findViewById<TextView>(R.id.awayname)
-        val homeScore = itemView.findViewById<TextView>(R.id.homescore)
-        val awayScore = itemView.findViewById<TextView>(R.id.awayscore)
+        val Score = itemView.findViewById<TextView>(R.id.score)
+
+
         //이제 가져온 위젯들(ImageView, TextView)의 소스, text를 크롤링해온 데이터로 바꿔줌
         fun bind(scoreBoard: ScoreBoard, context: Context) {
 // 홈팀 동기화
-            homeName.text = scoreBoard.homename
-            homeScore.text = scoreBoard.homescore
+
+            homeName.text = scoreBoard.hometeam
+            Score.text = scoreBoard.score
             var homeResName = "@drawable/"
-            val homeKorToEng = scoreBoard.homename
+            val homeKorToEng = scoreBoard.hometeam
             when (homeKorToEng) {
                 "서울" -> homeResName += "seoul"
                 "부산" -> homeResName += "busan"
@@ -50,10 +58,10 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
 
 
 //어웨이팀 동기화
-            awayName.text = scoreBoard.awayname
-            awayScore.text = scoreBoard.awayscore
+            awayName.text = scoreBoard.awayteam
+
             var awayResName = "@drawable/"
-            val awayKorToEng = scoreBoard.awayname
+            val awayKorToEng = scoreBoard.awayteam
             when (awayKorToEng) {
                 "서울" -> awayResName += "seoul"
                 "부산" -> awayResName += "busan"
@@ -73,6 +81,14 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
             val awayResId =
                 awayImage.resources.getIdentifier(awayResName, "drawable", context.packageName)
             awayImage.setImageResource(awayResId)
+            itemView.setOnClickListener {
+                val intent = Intent(context,ScoredetailActivity::class.java)
+                intent.putExtra("score", scoreBoard)
+                val score = intent.getParcelableExtra<ScoreBoard>("score")
+                Log.d("test", intent.putExtra("score", scoreBoard).toString())
+                Log.d("result", score.toString())
+                context.startActivity(intent)
+            }
         }
     }
 
