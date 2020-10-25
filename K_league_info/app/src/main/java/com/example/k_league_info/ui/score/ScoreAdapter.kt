@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.k_league_info.R
+import com.example.k_league_info.Scoredetail.HighlightModel
 import com.example.k_league_info.ScoredetailActivity
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -83,7 +84,11 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
             awayImage.setImageResource(awayResId)
             itemView.setOnClickListener {
                 val intent = Intent(context, ScoredetailActivity::class.java)
-                intent.putExtra("score", scoreBoard)
+                intent.putExtra("hometeam", scoreBoard.hometeam)
+                intent.putExtra("awayteam", scoreBoard.awayteam)
+                intent.putExtra("score", scoreBoard.score)
+                intent.putExtra("date", scoreBoard.date)
+                intent.putExtra("scoreDetail", scoreBoard.scoreDetail)
                 context.startActivity(intent)
             }
         }

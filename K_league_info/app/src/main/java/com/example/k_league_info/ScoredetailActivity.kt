@@ -15,14 +15,10 @@ class ScoredetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scoredetail)
         //받아온 scoreBoard
-        if (intent.getParcelableExtra<ScoreBoard>("score") == null) {
-            Log.d("log", "null")
-        }
-        val data = intent.getParcelableExtra<ScoreBoard>("score")
-        score.text = data.score
+        score.text = intent.getStringExtra("score")
 
         var homeResName = "@drawable/"
-        val homeKorToEng = data.hometeam
+        val homeKorToEng = intent.getStringExtra("hometeam")
         when (homeKorToEng) {
             "서울" -> homeResName += "seoul"
             "부산" -> homeResName += "busan"
@@ -45,7 +41,7 @@ class ScoredetailActivity : AppCompatActivity() {
         team_logo_1.setImageResource(homeResId)
 
         var awayResName = "@drawable/"
-        val awayKorToEng = data.awayteam
+        val awayKorToEng = intent.getStringExtra("awayteam")
         when (awayKorToEng) {
             "서울" -> awayResName += "seoul"
             "부산" -> awayResName += "busan"
@@ -66,7 +62,7 @@ class ScoredetailActivity : AppCompatActivity() {
             team_logo_2.resources.getIdentifier(awayResName, "drawable", packageName)
         team_logo_2.setImageResource(awayResId)
 
-        init(data.scoreDetail)
+        init(intent.getSerializableExtra("scoreDetail") as ArrayList<HighlightModel>)
     }
 
 
