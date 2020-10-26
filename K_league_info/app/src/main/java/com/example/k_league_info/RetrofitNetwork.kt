@@ -2,7 +2,6 @@ package com.example.k_league_info
 
 import com.example.k_league_info.ui.community.CommunityBoard
 import com.google.gson.JsonArray
-import com.google.gson.JsonObject
 import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Call
@@ -22,12 +21,12 @@ interface RetrofitNetwork {
     fun deleteCommunity(@Body number : JSONObject) : Call<ResponseBody>
 
     @GET("score")
-    fun getPost2() : Call<JsonArray>
+    fun getScore() : Call<JsonArray>
 
-    @GET("team_detail_player_list")  // API에서 사용하는 리소스 이름
-    fun getPostTeamdetail() : Call<JsonArray>
+    @GET("teamdetail")
+    fun getTeamDetail() : Call<JsonArray>
 
-    @GET("???")  // API에서 사용하는 리소스 이름
-    fun getPostPlayerdetail() : Call<JsonArray>
+    @GET("???")
+    fun getPlayerDetail() : Call<JsonArray>
 
 }

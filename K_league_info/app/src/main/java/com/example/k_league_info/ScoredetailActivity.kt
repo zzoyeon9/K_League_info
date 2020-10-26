@@ -18,8 +18,7 @@ class ScoredetailActivity : AppCompatActivity() {
         score.text = intent.getStringExtra("score")
 
         var homeResName = "@drawable/"
-        val homeKorToEng = intent.getStringExtra("hometeam")
-        when (homeKorToEng) {
+        when (intent.getStringExtra("homeTeam")) {
             "서울" -> homeResName += "seoul"
             "부산" -> homeResName += "busan"
             "광주" -> homeResName += "gwangju"
@@ -41,8 +40,7 @@ class ScoredetailActivity : AppCompatActivity() {
         team_logo_1.setImageResource(homeResId)
 
         var awayResName = "@drawable/"
-        val awayKorToEng = intent.getStringExtra("awayteam")
-        when (awayKorToEng) {
+        when (intent.getStringExtra("awayTeam")) {
             "서울" -> awayResName += "seoul"
             "부산" -> awayResName += "busan"
             "광주" -> awayResName += "gwangju"

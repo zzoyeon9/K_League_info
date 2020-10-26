@@ -1,4 +1,4 @@
-#Sun Oct 25 23:37:51 KST 2020
-base.0=C\:\\Users\\DaWit\\Desktop\\chd\\K_League_info\\K_league_info\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Mon Oct 26 21:34:10 KST 2020
+base.0=C\:\\Users\\YuKH\\Desktop\\project\\M_15project_final\\K_league_info\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

@@ -7,7 +7,6 @@ import android.widget.LinearLayout.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.k_league_info.ui.community.CommunityBoard
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonArray
 import kotlinx.android.synthetic.main.activity_teamdetail.*
@@ -35,7 +34,7 @@ class TeamdetailActivity : AppCompatActivity() {
     private fun PostList() {
         //비동기
         Runnable {
-            api.getPostTeamdetail().enqueue(object : Callback<JsonArray> {
+            api.getTeamDetail().enqueue(object : Callback<JsonArray> {
                 //서버와 접속 실패
                 override fun onFailure(call: Call<JsonArray>, t: Throwable) {
                     Log.d("log",t.message)

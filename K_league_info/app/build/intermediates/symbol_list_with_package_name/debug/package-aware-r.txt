@@ -1696,6 +1696,7 @@ id left
 id line1
 id line3
 id linearLayout
+id linearLayout2
 id linearTeamdetail
 id listMode
 id list_item

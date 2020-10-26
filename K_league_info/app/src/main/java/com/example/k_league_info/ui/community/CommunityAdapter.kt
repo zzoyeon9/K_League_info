@@ -3,6 +3,7 @@ package com.example.k_league_info.ui.community
 import android.animation.ValueAnimator
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,25 +11,22 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.RecyclerView
-import com.example.k_league_info.MyViewModel
-import com.example.k_league_info.R
-import com.example.k_league_info.RetrofitClient
-import com.example.k_league_info.RetrofitNetwork
+import com.example.k_league_info.*
+import com.example.k_league_info.Scoredetail.HighlightModel
+import com.example.k_league_info.ui.score.ScoreBoard
+import com.google.gson.GsonBuilder
+import kotlinx.android.synthetic.main.activity_splash.*
 import okhttp3.ResponseBody
+import org.json.JSONArray
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CommunityAdapter(val context: Context, private val communityList: ArrayList<CommunityBoard>, private val viewModel: MyViewModel) :
+class CommunityAdapter(val context: Context, private val communityList: ArrayList<CommunityBoard>) :
 
     RecyclerView.Adapter<CommunityAdapter.Holder>() {
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        private var retrofitClient = RetrofitClient()
-        private val retrofit = retrofitClient.getInstance()
-        private val api: RetrofitNetwork = retrofit.create(RetrofitNetwork::class.java)
-
         val title: TextView = itemView.findViewById(R.id.title)
         val content : TextView = itemView.findViewById(R.id.content)
         private val view : LinearLayout = itemView.findViewById(R.id.view)
@@ -70,20 +68,22 @@ class CommunityAdapter(val context: Context, private val communityList: ArrayLis
             }
 
             delete.setOnClickListener {
-
                 var pw = password.text.toString()
                 if (pw == communityBoard.password) {
                     val json = JSONObject()
                     json.put("number", communityBoard.number)
-                    api.deleteCommunity(json).enqueue(object : Callback<ResponseBody> {
+                    AppData.restAPI.deleteCommunity(json).enqueue(object : Callback<ResponseBody> {
                         override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                             Toast.makeText(context,"실패하였습니다.",Toast.LENGTH_LONG).show()
                         }
                         override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                            communityList.remove(communityBoard)
-                            viewModel.setCommunity(communityList)
-                            notifyDataSetChanged()
-                            Toast.makeText(context,"삭제되었습니다.",Toast.LENGTH_LONG).show()
+                            if (response.code() == 200) {
+                                Toast.makeText(context,"삭제되었습니다.",Toast.LENGTH_LONG).show()
+                                AppData.communityList.remove(communityBoard)
+                                notifyDataSetChanged()
+                            } else {
+                                Toast.makeText(context,"실패하였습니다.",Toast.LENGTH_LONG).show()
+                            }
                         }
                     })
                 } else {

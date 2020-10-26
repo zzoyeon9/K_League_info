@@ -2,7 +2,6 @@ package com.example.k_league_info.ui.score
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.k_league_info.R
-import com.example.k_league_info.Scoredetail.HighlightModel
 import com.example.k_league_info.ScoredetailActivity
-import java.text.DateFormat
-import java.text.SimpleDateFormat
 import java.util.*
 
 class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>) :
@@ -34,8 +30,7 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
             homeName.text = scoreBoard.hometeam
             Score.text = scoreBoard.score
             var homeResName = "@drawable/"
-            val homeKorToEng = scoreBoard.hometeam
-            when (homeKorToEng) {
+            when (scoreBoard.hometeam) {
                 "서울" -> homeResName += "seoul"
                 "부산" -> homeResName += "busan"
                 "광주" -> homeResName += "gwangju"
@@ -60,10 +55,8 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
 
 //어웨이팀 동기화
             awayName.text = scoreBoard.awayteam
-
             var awayResName = "@drawable/"
-            val awayKorToEng = scoreBoard.awayteam
-            when (awayKorToEng) {
+            when (scoreBoard.awayteam) {
                 "서울" -> awayResName += "seoul"
                 "부산" -> awayResName += "busan"
                 "광주" -> awayResName += "gwangju"
@@ -84,8 +77,8 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
             awayImage.setImageResource(awayResId)
             itemView.setOnClickListener {
                 val intent = Intent(context, ScoredetailActivity::class.java)
-                intent.putExtra("hometeam", scoreBoard.hometeam)
-                intent.putExtra("awayteam", scoreBoard.awayteam)
+                intent.putExtra("homeTeam", scoreBoard.hometeam)
+                intent.putExtra("awayTeam", scoreBoard.awayteam)
                 intent.putExtra("score", scoreBoard.score)
                 intent.putExtra("date", scoreBoard.date)
                 intent.putExtra("scoreDetail", scoreBoard.scoreDetail)
@@ -106,9 +99,6 @@ class ScoreAdapter(val context: Context, val scheduleList: ArrayList<ScoreBoard>
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(scheduleList[position], context)
-        /* holder.itemView.setOnClickListener{
-             itemClickListener!!.onClick(it, position)
-         }*/
     }
 
 
