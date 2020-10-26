@@ -24,10 +24,10 @@ class TeamdetailActivity : AppCompatActivity() {
         RetrofitNetwork::class.java)
 
     private val boardlist = arrayListOf<TeamdetailBoard>(
-        TeamdetailBoard("","ryan01","","","","","","https://i.pinimg.com/originals/60/00/35/600035c0e351085fced5e3473da3a147.jpg"),
-        TeamdetailBoard("","ryan02","","","","","","https://i.pinimg.com/originals/bc/6f/64/bc6f6464d2abe64a7eb3e940654e1b3a.png"),
-        TeamdetailBoard("","ryan03","","","","","","https://i.pinimg.com/474x/96/48/e9/9648e97d392b54acbef76ccacbfffc12.jpg"),
-        TeamdetailBoard("","ryan04","","","","","","https://i.pinimg.com/originals/8a/e8/8e/8ae88e20a679dd60f5d6f237039bee08.jpg")
+//        TeamdetailBoard("","ryan01","","","","","","https://i.pinimg.com/originals/60/00/35/600035c0e351085fced5e3473da3a147.jpg"),
+//        TeamdetailBoard("","ryan02","","","","","","https://i.pinimg.com/originals/bc/6f/64/bc6f6464d2abe64a7eb3e940654e1b3a.png"),
+//        TeamdetailBoard("","ryan03","","","","","","https://i.pinimg.com/474x/96/48/e9/9648e97d392b54acbef76ccacbfffc12.jpg"),
+//        TeamdetailBoard("","ryan04","","","","","","https://i.pinimg.com/originals/8a/e8/8e/8ae88e20a679dd60f5d6f237039bee08.jpg")
     )
 
 
@@ -42,14 +42,15 @@ class TeamdetailActivity : AppCompatActivity() {
                 //서버와 접속 성공
                 override fun onResponse(call: Call<JsonArray>, response: Response<JsonArray>) {
                     val gson = GsonBuilder().create()
-                    Log.d("@@@@@@@@@@", response.toString())
-                    Log.d("이건 뭐냐 ? ", response.body().toString())
+                    Log.d("log : @@@@@@@@@@", response.toString())
+                    Log.d("log : 이건 뭐냐 ? ", response.body().toString())
                     //json 형식을 TeamdetailBoard 형식으로 파싱하여 boardlist에 삽입
                     val jsonArray = JSONArray(response.body().toString())
                     for (i in 0 until jsonArray.length()) {
                         var board = gson.fromJson(jsonArray.getJSONObject(i).toString(), TeamdetailBoard::class.java)
-                        print(board)
-                        Log.d("board 나오나? ", board.toString())
+
+
+                        Log.d("log : board 나오나? ", board.toString())
                         boardlist.add(board)
                     }
                     staff_recyclerview.adapter?.notifyDataSetChanged()
@@ -70,7 +71,7 @@ class TeamdetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState : Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_teamdetail)
-        // PostList()  이거 고쳐야함
+        PostList() // 이거 고쳐야함
 
         var teamName: String? = getIntent().getStringExtra("teamName")
         teamLogo.setImageResource(baseContext.resources.getIdentifier(teamName, "drawable", baseContext.packageName))
@@ -110,6 +111,7 @@ class TeamdetailActivity : AppCompatActivity() {
     }
 
 
+    /*
     /**
      * @author : 구본승
      * @description : 만약 시작시 데이터가 없다면 toast 메시지로 404 를 띄운다
@@ -121,5 +123,6 @@ class TeamdetailActivity : AppCompatActivity() {
             Toast.LENGTH_SHORT.toString(404)
         }
     }
+    */
 }
 
