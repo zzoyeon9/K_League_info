@@ -23,12 +23,13 @@ class TeamdetailActivity : AppCompatActivity() {
     private val api: RetrofitNetwork = retrofit.create(
         RetrofitNetwork::class.java)
 
-    private val boardlist = arrayListOf<TeamdetailBoard>(
-//        TeamdetailBoard("","ryan01","","","","","","https://i.pinimg.com/originals/60/00/35/600035c0e351085fced5e3473da3a147.jpg"),
-//        TeamdetailBoard("","ryan02","","","","","","https://i.pinimg.com/originals/bc/6f/64/bc6f6464d2abe64a7eb3e940654e1b3a.png"),
-//        TeamdetailBoard("","ryan03","","","","","","https://i.pinimg.com/474x/96/48/e9/9648e97d392b54acbef76ccacbfffc12.jpg"),
-//        TeamdetailBoard("","ryan04","","","","","","https://i.pinimg.com/originals/8a/e8/8e/8ae88e20a679dd60f5d6f237039bee08.jpg")
-    )
+
+    private val stafflist :ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
+    private val fwlist :ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
+    private val mflist :ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
+    private val dflist :ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
+    private val gklist :ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
+
 
 
     private fun PostList() {
@@ -48,11 +49,26 @@ class TeamdetailActivity : AppCompatActivity() {
                     val jsonArray = JSONArray(response.body().toString())
                     for (i in 0 until jsonArray.length()) {
                         var board = gson.fromJson(jsonArray.getJSONObject(i).toString(), TeamdetailBoard::class.java)
-
-
                         Log.d("log : board 나오나? ", board.toString())
-                        boardlist.add(board)
+                        if(board.position.equals("공격수")){
+                            fwlist.add(board)
+                        }
+                        if(board.position.equals("미드필더")){
+                            mflist.add(board)
+                        }
+                        if(board.position.equals("수비수")){
+                            dflist.add(board)
+                        }
+                        if(board.position.equals("골키퍼")){
+                            gklist.add(board)
+                        }
                     }
+
+                    Log.d("log : fw : ", fwlist.size.toString())
+                    Log.d("log : mf : ", mflist.size.toString())
+                    Log.d("log : df : ", dflist.size.toString())
+                    Log.d("log : gk : ", gklist.size.toString())
+
                     staff_recyclerview.adapter?.notifyDataSetChanged()
                     fw_recyclerview.adapter?.notifyDataSetChanged()
                     mf_recyclerview.adapter?.notifyDataSetChanged()
@@ -93,19 +109,19 @@ class TeamdetailActivity : AppCompatActivity() {
         gk_recyclerview.layoutManager = linearLayoutManager
 
         // Staff recyclerview adapter
-        adapter = TeamdetailAdapter(baseContext, boardlist)
+        adapter = TeamdetailAdapter(baseContext, stafflist)
         staff_recyclerview.adapter = adapter
         // FW recyclerview adapter
-        adapter = TeamdetailAdapter(baseContext, boardlist)
+        adapter = TeamdetailAdapter(baseContext, fwlist)
         fw_recyclerview.adapter = adapter
         // MF recyclerview adapter
-        adapter = TeamdetailAdapter(baseContext, boardlist)
+        adapter = TeamdetailAdapter(baseContext, mflist)
         mf_recyclerview.adapter = adapter
         // DF recyclerview adapter
-        adapter = TeamdetailAdapter(baseContext, boardlist)
+        adapter = TeamdetailAdapter(baseContext, dflist)
         df_recyclerview.adapter = adapter
         // GK recyclerview adapter
-        adapter = TeamdetailAdapter(baseContext, boardlist)
+        adapter = TeamdetailAdapter(baseContext, gklist)
         gk_recyclerview.adapter = adapter
 
     }
