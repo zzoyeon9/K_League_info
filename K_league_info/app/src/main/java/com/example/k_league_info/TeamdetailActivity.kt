@@ -21,46 +21,65 @@ class TeamdetailActivity : AppCompatActivity() {
     private var retrofitClient = RetrofitClient()
     private val retrofit = retrofitClient.getInstance()
     private val api: RetrofitNetwork = retrofit.create(
-        RetrofitNetwork::class.java)
+        RetrofitNetwork::class.java
+    )
 
 
-    private val stafflist :ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
-    private val fwlist :ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
-    private val mflist :ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
-    private val dflist :ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
-    private val gklist :ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
+    private val stafflist: ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
+    private val fwlist: ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
+    private val mflist: ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
+    private val dflist: ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
+    private val gklist: ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
 
 
-
-    private fun PostList() {
+    private fun PostList(teamName : String) {
+        var tName : String = ""
+        // 팀 이름 한글 or 영어 여도 조회 가능하게
+        if(teamName == "suwon"){
+            tName = "수원"
+        } else if(teamName == "jeonbuk") {
+            tName = "전북"
+        } else if(teamName == "seoul"){
+            tName = "서울"
+        }
         //비동기
         Runnable {
             api.getTeamDetail().enqueue(object : Callback<JsonArray> {
                 //서버와 접속 실패
                 override fun onFailure(call: Call<JsonArray>, t: Throwable) {
-                    Log.d("log",t.message)
+                    Log.d("log", t.message)
                 }
+
                 //서버와 접속 성공
                 override fun onResponse(call: Call<JsonArray>, response: Response<JsonArray>) {
                     val gson = GsonBuilder().create()
-                    Log.d("log : @@@@@@@@@@", response.toString())
-                    Log.d("log : 이건 뭐냐 ? ", response.body().toString())
+//                    Log.d("log : @@@@@@@@@@", response.toString())
+//                    Log.d("log : 이건 뭐냐 ? ", response.body().toString())
                     //json 형식을 TeamdetailBoard 형식으로 파싱하여 boardlist에 삽입
                     val jsonArray = JSONArray(response.body().toString())
                     for (i in 0 until jsonArray.length()) {
-                        var board = gson.fromJson(jsonArray.getJSONObject(i).toString(), TeamdetailBoard::class.java)
-                        Log.d("log : board 나오나? ", board.toString())
-                        if(board.position.equals("공격수")){
-                            fwlist.add(board)
-                        }
-                        if(board.position.equals("미드필더")){
-                            mflist.add(board)
-                        }
-                        if(board.position.equals("수비수")){
-                            dflist.add(board)
-                        }
-                        if(board.position.equals("골키퍼")){
-                            gklist.add(board)
+                        var board = gson.fromJson(
+                            jsonArray.getJSONObject(i).toString(),
+                            TeamdetailBoard::class.java
+                        )
+//                        Log.d("log : board 나오나? ", board.toString())
+//                        Log.d("log : Booard.pos ", board.position.toString())
+//                        Log.d("log : ?? ", tName)
+//                        Log.d("log : && ", board.belong.toString())
+                        if(board.belong.toString() == tName || board.belong.toString() == teamName) {
+//                            Log.d("log : 나오냐 ? ", board.position.toString())
+                            if (board.position.toString() == "FW" || board.position.toString() == "공격수") {
+                                fwlist.add(board)
+                            }
+                            if (board.position.toString().equals("MF") || board.position.toString() == "미드필더") {
+                                mflist.add(board)
+                            }
+                            if (board.position.toString().equals("DF") || board.position.toString() == "수비수") {
+                                dflist.add(board)
+                            }
+                            if (board.position.toString().equals("GK") || board.position.toString() == "골키퍼") {
+                                gklist.add(board)
+                            }
                         }
                     }
 
@@ -84,13 +103,21 @@ class TeamdetailActivity : AppCompatActivity() {
      * @description : intent로 넘어온 data처리 & Layoutmanager 사용하여 horizontal 형태의 recyclerview 설정 & adapter 사용
      * */
     @SuppressLint("WrongConstant")
-    override fun onCreate(savedInstanceState : Bundle?){
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_teamdetail)
-        PostList() // 이거 고쳐야함
 
-        var teamName: String? = getIntent().getStringExtra("teamName")
-        teamLogo.setImageResource(baseContext.resources.getIdentifier(teamName, "drawable", baseContext.packageName))
+
+
+        var teamName: String = getIntent().getStringExtra("teamName")
+        PostList(teamName) // 이거 고쳐야함
+        teamLogo.setImageResource(
+            baseContext.resources.getIdentifier(
+                teamName,
+                "drawable",
+                baseContext.packageName
+            )
+        )
 
         // Staff recyclerView
         linearLayoutManager = LinearLayoutManager(this, HORIZONTAL, false)
