@@ -19,7 +19,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/playerImg"
                     android:layout_width="match_parent"
                     android:layout_height="288dp"
                     android:layout_weight="1"
@@ -38,7 +38,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView10"
+                            android:id="@+id/belong_id"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -47,7 +47,7 @@
                             android:textSize="24sp" />
 
                         <TextView
-                            android:id="@+id/textView11"
+                            android:id="@+id/belong_data"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -63,7 +63,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/name_id"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -73,7 +73,7 @@
                             android:textSize="24sp" />
 
                         <TextView
-                            android:id="@+id/textView3"
+                            android:id="@+id/name_data"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -89,7 +89,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView5"
+                            android:id="@+id/birthdt_id"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -98,7 +98,7 @@
                             android:textSize="24sp" />
 
                         <TextView
-                            android:id="@+id/textView4"
+                            android:id="@+id/birhtdt_data"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -114,7 +114,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView6"
+                            android:id="@+id/height_id"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -123,7 +123,7 @@
                             android:textSize="24sp" />
 
                         <TextView
-                            android:id="@+id/textView7"
+                            android:id="@+id/height_data"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -139,7 +139,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView8"
+                            android:id="@+id/weight_id"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -148,7 +148,7 @@
                             android:textSize="24sp" />
 
                         <TextView
-                            android:id="@+id/textView9"
+                            android:id="@+id/weight_data"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -164,7 +164,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/position_id"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -173,7 +173,7 @@
                             android:textSize="24sp" />
 
                         <TextView
-                            android:id="@+id/textView12"
+                            android:id="@+id/position_data"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -186,7 +186,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/msgToPlayer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="선수에게 한마디"

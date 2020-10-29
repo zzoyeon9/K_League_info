@@ -1,4 +1,4 @@
-#Thu Oct 29 11:13:40 KST 2020
+#Fri Oct 30 08:53:26 KST 2020
 base.0=C\:\\Users\\Metanet\\Desktop\\K_League_info\\K_league_info\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

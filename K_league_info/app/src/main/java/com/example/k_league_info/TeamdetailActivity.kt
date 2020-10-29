@@ -1,6 +1,8 @@
 package com.example.k_league_info
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.LinearLayout.*
@@ -25,7 +27,7 @@ class TeamdetailActivity : AppCompatActivity() {
     )
 
 
-    private val stafflist: ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
+//    private val stafflist: ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
     private val fwlist: ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
     private val mflist: ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
     private val dflist: ArrayList<TeamdetailBoard> = arrayListOf<TeamdetailBoard>()
@@ -34,13 +36,31 @@ class TeamdetailActivity : AppCompatActivity() {
 
     private fun PostList(teamName : String) {
         var tName : String = ""
-        // 팀 이름 한글 or 영어 여도 조회 가능하게
+        // 팀 이름 한글 or 영어 조회 가능하게
         if(teamName == "suwon"){
             tName = "수원"
         } else if(teamName == "jeonbuk") {
             tName = "전북"
         } else if(teamName == "seoul"){
             tName = "서울"
+        } else if(teamName == "busan"){
+            tName = "부산"
+        } else if(teamName == "daegu"){
+            tName = "대구"
+        } else if(teamName == "gwangju"){
+            tName = "광주"
+        } else if(teamName == "gangwon"){
+            tName = "강원"
+        } else if(teamName == "incheon"){
+            tName = "인천"
+        } else if(teamName == "pohang"){
+            tName = "포항"
+        } else if(teamName == "sangju"){
+            tName = "상주"
+        } else if(teamName == "seongnam"){
+            tName = "성남"
+        } else if(teamName == "ulsan"){
+            tName = "울산"
         }
         //비동기
         Runnable {
@@ -88,7 +108,7 @@ class TeamdetailActivity : AppCompatActivity() {
                     Log.d("log : df : ", dflist.size.toString())
                     Log.d("log : gk : ", gklist.size.toString())
 
-                    staff_recyclerview.adapter?.notifyDataSetChanged()
+//                    staff_recyclerview.adapter?.notifyDataSetChanged()
                     fw_recyclerview.adapter?.notifyDataSetChanged()
                     mf_recyclerview.adapter?.notifyDataSetChanged()
                     df_recyclerview.adapter?.notifyDataSetChanged()
@@ -110,18 +130,12 @@ class TeamdetailActivity : AppCompatActivity() {
 
 
         var teamName: String = getIntent().getStringExtra("teamName")
-        PostList(teamName) // 이거 고쳐야함
-        teamLogo.setImageResource(
-            baseContext.resources.getIdentifier(
-                teamName,
-                "drawable",
-                baseContext.packageName
-            )
-        )
+        PostList(teamName)
+        teamLogo.setImageResource(baseContext.resources.getIdentifier(teamName,"drawable",baseContext.packageName))
 
-        // Staff recyclerView
-        linearLayoutManager = LinearLayoutManager(this, HORIZONTAL, false)
-        staff_recyclerview.layoutManager = linearLayoutManager
+//         //Staff recyclerView
+//        linearLayoutManager = LinearLayoutManager(this, HORIZONTAL, false)
+//        staff_recyclerview.layoutManager = linearLayoutManager
         // FW recyclerView
         linearLayoutManager = LinearLayoutManager(this, HORIZONTAL, false)
         fw_recyclerview.layoutManager = linearLayoutManager
@@ -135,9 +149,9 @@ class TeamdetailActivity : AppCompatActivity() {
         linearLayoutManager = LinearLayoutManager(this, HORIZONTAL, false)
         gk_recyclerview.layoutManager = linearLayoutManager
 
-        // Staff recyclerview adapter
-        adapter = TeamdetailAdapter(baseContext, stafflist)
-        staff_recyclerview.adapter = adapter
+//        // Staff recyclerview adapter
+//        adapter = TeamdetailAdapter(baseContext, stafflist)
+//        staff_recyclerview.adapter = adapter
         // FW recyclerview adapter
         adapter = TeamdetailAdapter(baseContext, fwlist)
         fw_recyclerview.adapter = adapter
@@ -152,20 +166,5 @@ class TeamdetailActivity : AppCompatActivity() {
         gk_recyclerview.adapter = adapter
 
     }
-
-
-    /*
-    /**
-     * @author : 구본승
-     * @description : 만약 시작시 데이터가 없다면 toast 메시지로 404 를 띄운다
-     * */
-    override fun onStart() {
-        super.onStart()
-        // boardlist가 없을 경우 app 다운됨
-        if(boardlist.size == 0){
-            Toast.LENGTH_SHORT.toString(404)
-        }
-    }
-    */
 }
 
