@@ -22,7 +22,7 @@ class TeamdetailAdapter(val context: Context, private val data: ArrayList<Teamde
         }
 
         fun bind(board: TeamdetailBoard, context: Context) {
-            val uri = Uri.parse(board.imageurl)
+            val uri = Uri.parse(board.img_src)
             Glide.with(itemView.context).asBitmap().load(uri).fitCenter()
                 .into(itemView.player_thumbnail)
             itemView.player_name.text = board.name

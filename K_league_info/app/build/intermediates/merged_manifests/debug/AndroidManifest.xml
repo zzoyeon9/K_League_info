@@ -31,9 +31,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.k_league_info.MainActivity" />
-        <activity
-            android:name="com.example.k_league_info.ui.community.PostWrite"
-            android:windowSoftInputMode="adjustResize" />
+        <activity android:name="com.example.k_league_info.ui.community.PostWrite" />
         <activity android:name="com.example.k_league_info.ScoredetailActivity" />
         <activity android:name="com.example.k_league_info.PlayerActivity" />
         <activity android:name="com.example.k_league_info.TeamdetailActivity" />

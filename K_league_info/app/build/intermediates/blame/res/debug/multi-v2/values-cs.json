@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Android_Kotlin_Examples\\K_League_info\\K_league_info\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-cs\\values-cs.xml",
+            "outputFile": "C:\\Users\\Metanet\\Desktop\\K_League_info\\K_league_info\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-cs\\values-cs.xml",
             "map": [
                 {
-                    "source": "C:\\Android_Avd_Gradle\\.gradle\\caches\\transforms-2\\files-2.1\\4e039017508058e03141616af225b4eb\\appcompat-1.2.0\\res\\values-cs\\values-cs.xml",
+                    "source": "C:\\Users\\Metanet\\.gradle\\caches\\transforms-2\\files-2.1\\4e039017508058e03141616af225b4eb\\appcompat-1.2.0\\res\\values-cs\\values-cs.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Android_Avd_Gradle\\.gradle\\caches\\transforms-2\\files-2.1\\b9e447ea13933be3188bcc0770ab89f6\\navigation-ui-2.3.0\\res\\values-cs\\values-cs.xml",
+                    "source": "C:\\Users\\Metanet\\.gradle\\caches\\transforms-2\\files-2.1\\b9e447ea13933be3188bcc0770ab89f6\\navigation-ui-2.3.0\\res\\values-cs\\values-cs.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Android_Avd_Gradle\\.gradle\\caches\\transforms-2\\files-2.1\\3fad7ea4f0b845c6f6667debb95e1494\\core-1.3.1\\res\\values-cs\\values-cs.xml",
+                    "source": "C:\\Users\\Metanet\\.gradle\\caches\\transforms-2\\files-2.1\\3fad7ea4f0b845c6f6667debb95e1494\\core-1.3.1\\res\\values-cs\\values-cs.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

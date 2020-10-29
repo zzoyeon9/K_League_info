@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Android_Kotlin_Examples\\K_League_info\\K_league_info\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "C:\\Users\\Metanet\\Desktop\\K_League_info\\K_league_info\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Android_Avd_Gradle\\.gradle\\caches\\transforms-2\\files-2.1\\3fad7ea4f0b845c6f6667debb95e1494\\core-1.3.1\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Metanet\\.gradle\\caches\\transforms-2\\files-2.1\\3fad7ea4f0b845c6f6667debb95e1494\\core-1.3.1\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Android_Avd_Gradle\\.gradle\\caches\\transforms-2\\files-2.1\\4e039017508058e03141616af225b4eb\\appcompat-1.2.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Metanet\\.gradle\\caches\\transforms-2\\files-2.1\\4e039017508058e03141616af225b4eb\\appcompat-1.2.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
