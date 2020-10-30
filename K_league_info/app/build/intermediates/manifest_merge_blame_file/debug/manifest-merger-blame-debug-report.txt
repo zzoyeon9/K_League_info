@@ -15,7 +15,7 @@
 11-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:5:22-64
 12
 13    <application
-13-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:7:5-29:19
+13-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:7:5-30:19
 14        android:allowBackup="true"
 14-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:8:9-35
 15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -30,53 +30,55 @@
 20        android:supportsRtl="true"
 20-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:12:9-35
 21        android:testOnly="true"
-22        android:theme="@style/AppTheme" >
-22-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:13:9-40
-23        <activity
-23-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:15:9-23:20
-24            android:name="com.example.k_league_info.SplashActivity"
-24-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:16:13-43
-25            android:label="@string/app_name"
-25-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:18:13-45
-26            android:theme="@style/AppTheme" >
-26-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:17:13-44
-27            <intent-filter>
-27-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:19:13-22:29
-28                <action android:name="android.intent.action.MAIN" />
-28-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:20:17-69
-28-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:20:25-66
-29
-30                <category android:name="android.intent.category.LAUNCHER" />
-30-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:21:17-77
-30-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:21:27-74
-31            </intent-filter>
-32        </activity>
-33        <activity android:name="com.example.k_league_info.MainActivity" />
-33-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:24:9-50
-33-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:24:19-47
-34        <activity android:name="com.example.k_league_info.ui.community.PostWrite" />
-34-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:25:9-60
-34-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:25:19-57
-35        <activity android:name="com.example.k_league_info.ScoredetailActivity" />
-35-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:26:9-66
-35-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:26:19-54
-36        <activity android:name="com.example.k_league_info.PlayerActivity" />
-36-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:27:9-52
-36-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:27:19-49
-37        <activity android:name="com.example.k_league_info.TeamdetailActivity" />
-37-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:28:9-56
-37-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:28:19-53
-38
-39        <provider
-39-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Metanet\.gradle\caches\transforms-2\files-2.1\66682bac27f64bb463b438dc006b709f\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
-40            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-40-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Metanet\.gradle\caches\transforms-2\files-2.1\66682bac27f64bb463b438dc006b709f\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
-41            android:authorities="com.example.k_league_info.lifecycle-process"
-41-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Metanet\.gradle\caches\transforms-2\files-2.1\66682bac27f64bb463b438dc006b709f\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
-42            android:exported="false"
-42-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Metanet\.gradle\caches\transforms-2\files-2.1\66682bac27f64bb463b438dc006b709f\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
-43            android:multiprocess="true" />
-43-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Metanet\.gradle\caches\transforms-2\files-2.1\66682bac27f64bb463b438dc006b709f\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
-44    </application>
-45
-46</manifest>
+22        android:theme="@style/AppTheme"
+22-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:14:9-40
+23        android:usesCleartextTraffic="true" >
+23-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:13:9-44
+24        <activity
+24-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:16:9-24:20
+25            android:name="com.example.k_league_info.SplashActivity"
+25-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:17:13-43
+26            android:label="@string/app_name"
+26-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:19:13-45
+27            android:theme="@style/AppTheme" >
+27-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:18:13-44
+28            <intent-filter>
+28-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:20:13-23:29
+29                <action android:name="android.intent.action.MAIN" />
+29-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:21:17-69
+29-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:21:25-66
+30
+31                <category android:name="android.intent.category.LAUNCHER" />
+31-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:22:17-77
+31-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:22:27-74
+32            </intent-filter>
+33        </activity>
+34        <activity android:name="com.example.k_league_info.MainActivity" />
+34-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:25:9-50
+34-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:25:19-47
+35        <activity android:name="com.example.k_league_info.ui.community.PostWrite" />
+35-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:26:9-60
+35-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:26:19-57
+36        <activity android:name="com.example.k_league_info.ScoredetailActivity" />
+36-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:27:9-66
+36-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:27:19-54
+37        <activity android:name="com.example.k_league_info.PlayerActivity" />
+37-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:28:9-52
+37-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:28:19-49
+38        <activity android:name="com.example.k_league_info.TeamdetailActivity" />
+38-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:29:9-56
+38-->C:\Users\Metanet\Desktop\K_League_info\K_league_info\app\src\main\AndroidManifest.xml:29:19-53
+39
+40        <provider
+40-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Metanet\.gradle\caches\transforms-2\files-2.1\66682bac27f64bb463b438dc006b709f\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
+41            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+41-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Metanet\.gradle\caches\transforms-2\files-2.1\66682bac27f64bb463b438dc006b709f\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
+42            android:authorities="com.example.k_league_info.lifecycle-process"
+42-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Metanet\.gradle\caches\transforms-2\files-2.1\66682bac27f64bb463b438dc006b709f\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
+43            android:exported="false"
+43-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Metanet\.gradle\caches\transforms-2\files-2.1\66682bac27f64bb463b438dc006b709f\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
+44            android:multiprocess="true" />
+44-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Metanet\.gradle\caches\transforms-2\files-2.1\66682bac27f64bb463b438dc006b709f\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
+45    </application>
+46
+47</manifest>

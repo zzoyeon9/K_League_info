@@ -23,10 +23,11 @@ class TeamdetailAdapter(val context: Context, private val data: ArrayList<Teamde
 
         fun bind(board: TeamdetailBoard, context: Context) {
             val uri = Uri.parse(board.img_src)
-            Glide.with(itemView.context).asBitmap().load(uri).fitCenter()
+            Glide.with(itemView.context).asBitmap().load(uri).override(120, 120).fitCenter()
                 .into(itemView.player_thumbnail)
             itemView.player_name.text = board.name
-            Log.d("log : itemView Name", uri.toString())
+            Log.d("log : img_uri ", uri.toString())
+            Log.d("log : board name : ", board.name)
         }
 
         // 여기서 PlayerActivity로 넘길 data 명시하면 됨
@@ -57,7 +58,7 @@ class TeamdetailAdapter(val context: Context, private val data: ArrayList<Teamde
     override fun getItemCount() = data.size
 
     override fun onBindViewHolder(holder: TeamdetailAdapter.Holder, position: Int) {
-//        //bind : 사진 붙이는 함수입니다. 현재 사진 사이즈 축소를 안해둬서 오류남 + http로 사진 못가져옴
-//        holder.bind(data[position], context)
+        //bind : 사진 붙이는 함수입니다. 현재 사진 사이즈 축소를 안해둬서 오류남 + http로 사진 못가져옴
+        holder.bind(data[position], context)
     }
 }
