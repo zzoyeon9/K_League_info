@@ -1592,7 +1592,7 @@ id barrier
 id beginning
 id belong_data
 id belong_id
-id birhtdt_data
+id birthdt_data
 id birthdt_id
 id blocking
 id bottom
@@ -1720,7 +1720,6 @@ id month_navigation_fragment_toggle
 id month_navigation_next
 id month_navigation_previous
 id month_title
-id msgToPlayer
 id mtrl_calendar_day_selector_frame
 id mtrl_calendar_days_of_week
 id mtrl_calendar_frame

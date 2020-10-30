@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import androidx.annotation.LayoutRes
+import androidx.core.os.persistableBundleOf
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_teamdetail.view.*
 
@@ -34,9 +35,14 @@ class TeamdetailAdapter(val context: Context, private val data: ArrayList<Teamde
         override fun onClick(v: View?) {
             Log.d("log : Recylcerview", "clicked")
             val nextIntent = Intent(itemView.context, PlayerActivity::class.java)
-            Log.d("log : TDAdapter! ", itemView.context.toString())
-            Log.d("log : View! ", v.toString())
-//            nextIntent.putExtra("player_data", v.toString())
+            Log.d("log : View! ", data.get(position).toString())
+            nextIntent.putExtra("belong", data.get(position).belong)
+            nextIntent.putExtra("name", data.get(position).name)
+            nextIntent.putExtra("birthdt", data.get(position).birthdt)
+            nextIntent.putExtra("height", data.get(position).height)
+            nextIntent.putExtra("weight", data.get(position).weight)
+            nextIntent.putExtra("position", data.get(position).position)
+            nextIntent.putExtra("img_src", data.get(position).img_src)
             itemView.context.startActivity(nextIntent)
         }
     }
