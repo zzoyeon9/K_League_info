@@ -1680,7 +1680,6 @@ id icon_group
 id ifRoom
 id image
 id imageView2
-id in_change
 id in_player
 id in_player_face
 id in_team_name
@@ -1756,7 +1755,6 @@ id notification_main_column_container
 id off
 id ok
 id on
-id out_change
 id out_player
 id out_player_face
 id out_team_name

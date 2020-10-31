@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.k_league_info.R
+import kotlinx.android.synthetic.main.item_teamdetail.view.*
 
 class MultiViewTypeAdapter(private val list: MutableList<HighlightModel>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -54,12 +56,14 @@ class MultiViewTypeAdapter(private val list: MutableList<HighlightModel>) :
             HighlightModel.ITEM_TIME -> {
                 (holder as TimeTypeViewHolder).title.text = obj.title
                 holder.time.text = obj.time
-                holder.time_image.setImageResource(obj.img)
+                Glide.with(holder.itemView).asBitmap().load(obj.img).fitCenter()
+                    .into(holder.time_image)
             }
             HighlightModel.ITEM_GOAL -> {
                 (holder as GoalTypeViewHolder).title.text = obj.title
                 holder.time.text = obj.time
-                holder.player_face.setImageResource(obj.img)
+                Glide.with(holder.itemView).asBitmap().load(obj.img).fitCenter()
+                    .into(holder.player_face)
                 holder.player.text = obj.player
                 holder.team_name.text = obj.teamName
                 holder.how.text = obj.contentString
@@ -67,17 +71,20 @@ class MultiViewTypeAdapter(private val list: MutableList<HighlightModel>) :
             HighlightModel.ITEM_CARD -> {
                 (holder as CardTypeViewHolder).title.text = obj.title
                 holder.time.text = obj.time
-                holder.player_face.setImageResource(obj.img)
+                Glide.with(holder.itemView).asBitmap().load(obj.img).fitCenter()
+                    .into(holder.player_face)
                 holder.player.text = obj.player
                 holder.team_name.text = obj.teamName
             }
             HighlightModel.ITEM_SWITCH -> {
                 (holder as SwitchTypeViewHolder).title.text = obj.title
                 holder.time.text = obj.time
-                holder.in_player_face.setImageResource(obj.img)
+                Glide.with(holder.itemView).asBitmap().load(obj.img).fitCenter()
+                    .into(holder.in_player_face)
                 holder.player.text = obj.player
                 holder.team_name.text = obj.teamName
-                holder.out_player_face.setImageResource(obj.img2)
+                Glide.with(holder.itemView).asBitmap().load(obj.img2).fitCenter()
+                    .into(holder.out_player_face)
                 holder.player2.text = obj.player2
                 holder.team_name2.text = obj.teamName2
             }

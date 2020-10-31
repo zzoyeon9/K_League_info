@@ -16,8 +16,11 @@
             android:id="@+id/time_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxHeight="150dp"
+            android:maxWidth="150dp"
+            android:adjustViewBounds="true"
             android:layout_gravity="center"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:src="@drawable/ic_launcher_foreground" />
 
         <TextView
