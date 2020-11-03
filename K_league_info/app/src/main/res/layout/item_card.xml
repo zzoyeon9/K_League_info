@@ -37,10 +37,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/team_name"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
@@ -48,6 +50,7 @@
 
             <TextView
                 android:id="@+id/player"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
@@ -55,9 +58,12 @@
 
             <ImageView
                 android:id="@+id/player_face"
-                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:maxWidth="150dp"
+                android:maxHeight="150dp"
                 android:src="@drawable/ic_launcher_foreground" />
 
         </LinearLayout>

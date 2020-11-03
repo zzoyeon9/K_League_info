@@ -18,10 +18,10 @@ data class HighlightModel(
     val type: Int,
     val title: String?,
     val time: String?,
-    val img: Int,
+    val img: String?,
     val teamName: String?,
     val player: String?,
-    val img2: Int,
+    val img2: String?,
     val teamName2: String?,
     val player2: String?,
     val contentString: String?) : Parcelable {
@@ -30,10 +30,10 @@ data class HighlightModel(
         parcel.readInt(),
         parcel.readString(),
         parcel.readString(),
-        parcel.readInt(),
         parcel.readString(),
         parcel.readString(),
-        parcel.readInt(),
+        parcel.readString(),
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString()
@@ -43,10 +43,10 @@ data class HighlightModel(
         parcel.writeInt(type)
         parcel.writeString(title)
         parcel.writeString(time)
-        parcel.writeInt(img)
+        parcel.writeString(img)
         parcel.writeString(teamName)
         parcel.writeString(player)
-        parcel.writeInt(img2)
+        parcel.writeString(img2)
         parcel.writeString(teamName2)
         parcel.writeString(player2)
         parcel.writeString(contentString)
