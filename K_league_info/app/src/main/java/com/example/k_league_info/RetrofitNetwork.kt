@@ -25,8 +25,4 @@ interface RetrofitNetwork {
 
     @GET("teamdetail")
     fun getTeamDetail() : Call<JsonArray>
-
-    @GET("???")
-    fun getPlayerDetail() : Call<JsonArray>
-
 }

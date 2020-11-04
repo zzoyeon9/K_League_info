@@ -2,14 +2,14 @@ package com.example.k_league_info.ui.team
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageButton
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.example.k_league_info.R
 import com.example.k_league_info.R.layout.fragment_team
 import com.example.k_league_info.TeamdetailActivity
+import kotlinx.android.synthetic.main.fragment_team.*
 
 class TeamFragment : Fragment() {
 
@@ -149,5 +149,6 @@ class TeamFragment : Fragment() {
      * */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
     }
 }

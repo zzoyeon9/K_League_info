@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:text="&lt;"
-            android:textSize="10dp"
+            android:textSize="14sp"
 
             />
 
@@ -46,7 +46,7 @@
             android:layout_marginLeft="30dp"
             android:text="&gt;"
 
-            />
+            android:textSize="14sp" />
 
     </LinearLayout>
 

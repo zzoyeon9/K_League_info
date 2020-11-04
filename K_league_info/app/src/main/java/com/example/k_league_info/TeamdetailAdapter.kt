@@ -2,14 +2,12 @@ package com.example.k_league_info
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import androidx.annotation.LayoutRes
-import androidx.core.os.persistableBundleOf
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_teamdetail.view.*
 
@@ -23,11 +21,11 @@ class TeamdetailAdapter(val context: Context, private val data: ArrayList<Teamde
         }
 
         fun bind(board: TeamdetailBoard, context: Context) {
-            val uri = Uri.parse(board.img_src)
-            Glide.with(itemView.context).asBitmap().load(uri).override(120, 120).fitCenter()
+            Glide.with(itemView.context).asBitmap().load(board.img_src).override(120, 120).fitCenter()
+                .placeholder(R.drawable.loading)
                 .into(itemView.player_thumbnail)
             itemView.player_name.text = board.name
-            Log.d("log : img_uri ", uri.toString())
+            Log.d("log : img_url ", board.img_src.toString())
             Log.d("log : board name : ", board.name)
         }
 
@@ -64,7 +62,7 @@ class TeamdetailAdapter(val context: Context, private val data: ArrayList<Teamde
     override fun getItemCount() = data.size
 
     override fun onBindViewHolder(holder: TeamdetailAdapter.Holder, position: Int) {
-        //bind : 사진 붙이는 함수입니다. 현재 사진 사이즈 축소를 안해둬서 오류남 + http로 사진 못가져옴
-        holder.bind(data[position], context)
+        //bind : 사진 붙이는 함수입니다.
+        holder.bind(board = data[position], context = context)
     }
 }

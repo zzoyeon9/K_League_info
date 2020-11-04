@@ -1473,6 +1473,7 @@ drawable incheon
 drawable jeonbuk
 drawable k_league_icon
 drawable layout_community
+drawable loading
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
 drawable material_ic_edit_black_24dp
@@ -1685,7 +1686,6 @@ id icon
 id icon_group
 id ifRoom
 id image
-id in_change
 id in_player
 id in_player_face
 id in_team_name
@@ -1763,7 +1763,6 @@ id notification_main_column_container
 id off
 id ok
 id on
-id out_change
 id out_player
 id out_player_face
 id out_team_name
@@ -1813,7 +1812,6 @@ id scrollIndicatorUp
 id scrollTeamdetail
 id scrollView
 id scrollable
-id searchPlayerorTeam
 id search_badge
 id search_bar
 id search_button

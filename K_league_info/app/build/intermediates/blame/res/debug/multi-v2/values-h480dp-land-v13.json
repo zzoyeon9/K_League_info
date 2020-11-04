@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Android_Kotlin_Examples\\K_League_info\\K_league_info\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h480dp-land-v13\\values-h480dp-land-v13.xml",
+            "outputFile": "C:\\Users\\Metanet\\Desktop\\K_League_info\\K_league_info\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h480dp-land-v13\\values-h480dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Android_Avd_Gradle\\.gradle\\caches\\transforms-2\\files-2.1\\d43342feff984a853cf830b41af8f506\\material-1.2.0\\res\\values-h480dp-land-v13\\values-h480dp-land-v13.xml",
+                    "source": "C:\\Users\\Metanet\\.gradle\\caches\\transforms-2\\files-2.1\\d43342feff984a853cf830b41af8f506\\material-1.2.0\\res\\values-h480dp-land-v13\\values-h480dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
