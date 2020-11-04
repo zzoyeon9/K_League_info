@@ -1,5 +1,6 @@
 package com.example.k_league_info.ui.score
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,29 +23,20 @@ class ScoreFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_score, container, false)
     }
 
-    private fun timeGenerator() :String{
-        val day = Calendar.getInstance()
-        val year = day.get(Calendar.YEAR).toString()
-        var month = (day.get(Calendar.MONTH) + 1).toString()
-        var date = day.get(Calendar.DATE).toString()
-        if (month.toInt() < 10) {
-            month = "0$month"
-        }
-        if (date.toInt() < 10) {
-            date = "0$date"
-        }
-        return year + month + date
-    }
-
-
+    @SuppressLint("SimpleDateFormat")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var scheduleList = arrayListOf<ScoreBoard>()
-        var day = timeGenerator().toInt()
-        for(i in AppData.scoreList)
-            if(day== i.date!!.toInt())
+        val cal = Calendar.getInstance()
+        cal.time = Date()
+        val format: DateFormat = SimpleDateFormat("MM.dd")
+        val dbFormat: DateFormat = SimpleDateFormat("yyyyMMdd")
+        val scheduleList = arrayListOf<ScoreBoard>()
+
+        for (i in AppData.scoreList)
+            if (dbFormat.format(cal.time) == i.date)
                 scheduleList.add(i)
+        calender.text = format.format(cal.time)
 
         val scoreAdapter = ScoreAdapter(requireContext(), scheduleList)
         score_recyclerView.adapter = scoreAdapter
@@ -53,44 +45,28 @@ class ScoreFragment : Fragment() {
         score_recyclerView.layoutManager = lm
         score_recyclerView.setHasFixedSize(true)
 
-        val cal = Calendar.getInstance()
-        cal.time = Date()
-        val format : DateFormat = SimpleDateFormat("MM.dd")
-
-        calender.text = format.format(cal.time)
-
         next.setOnClickListener {
+            scheduleList.clear()
             cal.add(Calendar.DATE, 1)
-            calender.text = format.format(cal.time)
-            day++
-            var scheduleList = arrayListOf<ScoreBoard>()
-            for(i in AppData.scoreList)
-                if(day== i.date!!.toInt())
+
+            for (i in AppData.scoreList)
+                if (dbFormat.format(cal.time) == i.date)
                     scheduleList.add(i)
 
-            val scoreAdapter = ScoreAdapter(requireContext(), scheduleList)
-            score_recyclerView.adapter = scoreAdapter
-
-            val lm = LinearLayoutManager(activity)
-            score_recyclerView.layoutManager = lm
-            score_recyclerView.setHasFixedSize(true)
+            calender.text = format.format(cal.time)
+            scoreAdapter.notifyDataSetChanged()
         }
 
         previous.setOnClickListener {
+            scheduleList.clear()
             cal.add(Calendar.DATE, -1)
-            calender.text = format.format(cal.time)
-            day--
-            var scheduleList = arrayListOf<ScoreBoard>()
-            for(i in AppData.scoreList)
-                if(day== i.date?.toInt())
+
+            for (i in AppData.scoreList)
+                if (dbFormat.format(cal.time) == i.date)
                     scheduleList.add(i)
 
-            val scoreAdapter = ScoreAdapter(requireContext(), scheduleList)
-            score_recyclerView.adapter = scoreAdapter
-
-            val lm = LinearLayoutManager(activity)
-            score_recyclerView.layoutManager = lm
-            score_recyclerView.setHasFixedSize(true)
+            calender.text = format.format(cal.time)
+            scoreAdapter.notifyDataSetChanged()
         }
     }
 }

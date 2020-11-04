@@ -34,19 +34,6 @@
                 android:padding="10dp"
                 android:text="80분" />
         </LinearLayout>
-        //선수얼굴?
-
-        <ImageView
-            android:id="@+id/player_face"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxHeight="150dp"
-            android:maxWidth="150dp"
-            android:adjustViewBounds="true"
-            android:layout_gravity="center"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_launcher_foreground" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -55,6 +42,7 @@
                 android:id="@+id/team_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:padding="10dp"
                 android:text="소속" />
 
@@ -62,15 +50,20 @@
                 android:id="@+id/player"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:padding="10dp"
                 android:text="이름" />
 
-            <TextView
-                android:id="@+id/how"
+            <ImageView
+                android:id="@+id/player_face"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="패널티, 슛" />
+                android:adjustViewBounds="true"
+                android:maxWidth="150dp"
+                android:maxHeight="150dp"
+                android:src="@drawable/ic_launcher_foreground" />
+
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

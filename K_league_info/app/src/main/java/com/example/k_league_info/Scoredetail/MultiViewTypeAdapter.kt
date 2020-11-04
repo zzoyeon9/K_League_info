@@ -66,7 +66,6 @@ class MultiViewTypeAdapter(private val list: MutableList<HighlightModel>) :
                     .into(holder.player_face)
                 holder.player.text = obj.player
                 holder.team_name.text = obj.teamName
-                holder.how.text = obj.contentString
             }
             HighlightModel.ITEM_CARD -> {
                 (holder as CardTypeViewHolder).title.text = obj.title
@@ -83,10 +82,6 @@ class MultiViewTypeAdapter(private val list: MutableList<HighlightModel>) :
                     .into(holder.in_player_face)
                 holder.player.text = obj.player
                 holder.team_name.text = obj.teamName
-                Glide.with(holder.itemView).asBitmap().load(obj.img2).fitCenter()
-                    .into(holder.out_player_face)
-                holder.player2.text = obj.player2
-                holder.team_name2.text = obj.teamName2
             }
         }
     }
@@ -109,7 +104,6 @@ class MultiViewTypeAdapter(private val list: MutableList<HighlightModel>) :
         val player_face: ImageView = itemView.findViewById(R.id.player_face)
         val team_name: TextView = itemView.findViewById(R.id.team_name)
         val player: TextView = itemView.findViewById(R.id.player)
-        val how: TextView = itemView.findViewById(R.id.how)
     }
 
     inner class CardTypeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -126,8 +120,5 @@ class MultiViewTypeAdapter(private val list: MutableList<HighlightModel>) :
         val in_player_face: ImageView = itemView.findViewById(R.id.in_player_face)
         val team_name: TextView = itemView.findViewById(R.id.in_team_name)
         val player: TextView = itemView.findViewById(R.id.in_player)
-        val out_player_face: ImageView = itemView.findViewById(R.id.out_player_face)
-        val team_name2: TextView = itemView.findViewById(R.id.out_team_name)
-        val player2: TextView = itemView.findViewById(R.id.out_player)
     }
 }

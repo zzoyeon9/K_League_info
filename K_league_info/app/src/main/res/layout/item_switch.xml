@@ -68,37 +68,5 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/out_team_name"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                tools:text="소속" />
-
-            <TextView
-                android:id="@+id/out_player"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                tools:text="이름" />
-
-            <ImageView
-                android:id="@+id/out_player_face"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxHeight="150dp"
-                android:maxWidth="150dp"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                tools:src="@drawable/ic_launcher_foreground" />
-
-        </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
