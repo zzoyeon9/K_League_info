@@ -2,6 +2,7 @@ package com.example.k_league_info.ui.score
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -60,6 +61,7 @@ class ScoreFragment : Fragment() {
         previous.setOnClickListener {
             scheduleList.clear()
             cal.add(Calendar.DATE, -1)
+            Log.d("log : cal = ",cal.time.toString())
 
             for (i in AppData.scoreList)
                 if (dbFormat.format(cal.time) == i.date)

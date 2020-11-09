@@ -21,7 +21,8 @@ class TeamdetailAdapter(val context: Context, private val data: ArrayList<Teamde
         }
 
         fun bind(board: TeamdetailBoard, context: Context) {
-            Glide.with(itemView.context).asBitmap().load(board.img_src).override(120, 120).fitCenter()
+            val img_tmp = board.img_src.toString().replace("https:","http:")
+            Glide.with(itemView.context).asBitmap().load(img_tmp).override(120, 120).fitCenter()
                 .placeholder(R.drawable.loading)
                 .into(itemView.player_thumbnail)
             itemView.player_name.text = board.name

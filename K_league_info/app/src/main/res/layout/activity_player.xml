@@ -18,11 +18,13 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/playerImg"
                     android:layout_width="match_parent"
                     android:layout_height="288dp"
                     android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:background="#ffffff"
                     app:srcCompat="@drawable/gk_lee" />
 
             </LinearLayout>

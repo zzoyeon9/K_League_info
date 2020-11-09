@@ -58,12 +58,13 @@
 
             <ImageView
                 android:id="@+id/in_player_face"
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxHeight="150dp"
-                android:maxWidth="150dp"
+                android:layout_weight="1"
                 android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:maxWidth="50dp"
+                android:maxHeight="50dp"
                 android:src="@drawable/ic_launcher_foreground" />
 
         </LinearLayout>

@@ -56,13 +56,15 @@ class MultiViewTypeAdapter(private val list: MutableList<HighlightModel>) :
             HighlightModel.ITEM_TIME -> {
                 (holder as TimeTypeViewHolder).title.text = obj.title
                 holder.time.text = obj.time
-                Glide.with(holder.itemView).asBitmap().load(obj.img).fitCenter()
+                val img_tmp = obj.img.toString().replace("https:","http:")
+                Glide.with(holder.itemView).asBitmap().load(img_tmp).override(50,50 ).fitCenter()
                     .into(holder.time_image)
             }
             HighlightModel.ITEM_GOAL -> {
                 (holder as GoalTypeViewHolder).title.text = obj.title
                 holder.time.text = obj.time
-                Glide.with(holder.itemView).asBitmap().load(obj.img).fitCenter()
+                val img_tmp = obj.img.toString().replace("https:","http:")
+                Glide.with(holder.itemView).asBitmap().load(img_tmp).override(50,50 ).fitCenter()
                     .into(holder.player_face)
                 holder.player.text = obj.player
                 holder.team_name.text = obj.teamName
@@ -70,7 +72,8 @@ class MultiViewTypeAdapter(private val list: MutableList<HighlightModel>) :
             HighlightModel.ITEM_CARD -> {
                 (holder as CardTypeViewHolder).title.text = obj.title
                 holder.time.text = obj.time
-                Glide.with(holder.itemView).asBitmap().load(obj.img).fitCenter()
+                val img_tmp = obj.img.toString().replace("https:","http:")
+                Glide.with(holder.itemView).asBitmap().load(img_tmp).override(50,50 ).fitCenter()
                     .into(holder.player_face)
                 holder.player.text = obj.player
                 holder.team_name.text = obj.teamName
@@ -78,7 +81,8 @@ class MultiViewTypeAdapter(private val list: MutableList<HighlightModel>) :
             HighlightModel.ITEM_SWITCH -> {
                 (holder as SwitchTypeViewHolder).title.text = obj.title
                 holder.time.text = obj.time
-                Glide.with(holder.itemView).asBitmap().load(obj.img).fitCenter()
+                val img_tmp = obj.img.toString().replace("https:","http:")
+                Glide.with(holder.itemView).asBitmap().load(img_tmp).override(50,50 ).fitCenter()
                     .into(holder.in_player_face)
                 holder.player.text = obj.player
                 holder.team_name.text = obj.teamName

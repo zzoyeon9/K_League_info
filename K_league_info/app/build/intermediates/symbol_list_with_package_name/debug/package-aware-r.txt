@@ -1681,7 +1681,6 @@ id home
 id homeAsUp
 id homemark
 id homename
-id how
 id icon
 id icon_group
 id ifRoom
@@ -1763,9 +1762,6 @@ id notification_main_column_container
 id off
 id ok
 id on
-id out_player
-id out_player_face
-id out_team_name
 id outline
 id packed
 id parallax
@@ -1812,6 +1808,7 @@ id scrollIndicatorUp
 id scrollTeamdetail
 id scrollView
 id scrollable
+id searchPlayerorTeam
 id search_badge
 id search_bar
 id search_button
@@ -1861,7 +1858,6 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
-id teamDesc
 id teamLogo
 id team_logo_1
 id team_logo_2

@@ -9,24 +9,19 @@
         android:id="@+id/teamdescLinearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="5dp"
         tools:ignore="MissingConstraints">
 
-        <ImageView
+        <ImageButton
             android:id="@+id/teamLogo"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:scaleType="fitCenter"
             android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:background="#FFFFFF"
             app:srcCompat="@drawable/gangwon" />
 
-        <TextView
-            android:id="@+id/teamDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="151dp"
-            android:layout_weight="1"
-            android:padding="5dp"
-            android:text="팀 설명 어쩌고 저쩌고" />
     </LinearLayout>
 
     <ScrollView
